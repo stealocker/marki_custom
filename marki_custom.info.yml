@@ -1,0 +1,20 @@
+name: MarKI Custom
+type: theme
+description: Custom Theme for MarKI by GNM
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+# Defines the base theme
+base theme: olivero
+# Defines libraries group in which we can add css/js.
+libraries:
+  - marki_custom/global-styling
+regions:
+  header_drupal_stuff: 'Drupal Header'
+  header_signet: 'Header (Signet)'
+  primary_menu: 'Primary Menu'
+  page_header: 'Page Header'
+  sidebar: 'Sidebar'
+  content: 'Content'
+  footer_txt: 'Footer Text'
+  footer_nav_left: 'Footer Address'
+  footer_nav_right: 'Footer Navigation and Logo'

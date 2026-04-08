@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ title|default('View PDF') }}</title>
+
+  <!-- 
+    Normally {{ entity_print_css }} is imported here.
+    We override the default CSS template because we want 
+    specific style adjustments for our PDF output.
+  -->
+  <style>
+    body {
+      font-family: "CorporateS-Regular", Helvetica, Arial, sans-serif;
+    }
+
+    .fusszeile, .kopfzeile {
+      position: fixed;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      color: grey;
+      font-size: 11px;
+    }
+
+    .kopfzeile {
+      top: -60px;
+      text-align: right;
+    }
+
+    .fusszeile {
+      bottom: -60px;
+      text-align: center;
+    }
+
+    /* Page counter */
+    .page-number:after {
+      content: counter(page);
+      color: grey;
+    }
+
+    .page {
+      padding: 20px; /* looks nicer and leaves space for header and footer */
+    }
+
+    .page img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page td img {
+      max-width: none;
+    }
+
+    .page .field__label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .page .field__item {
+      margin-bottom: 5px;
+    }
+
+    /* 
+      Link handling:
+      all <a>-tags are converted into <span>-tags 
+      via the Twig filter below. 
+      This ensures that links are displayed as plain text
+      and not clickable inside the PDF.
+    */
+    span {
+      color: black;
+      text-decoration: none;
+    }
+
+    /* Hide the "Download as PDF" label inside the PDF output */
+    .page .print__wrapper.print__wrapper--pdf span {
+      display: none;
+    }
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <header class="kopfzeile">
+    <p>
+      gedruckt am:
+      <time datetime='{{ "now"|date("Y-m-d") }}'>
+        {{ "now"|date("d.m.Y") }}
+      </time>
+    </p>
+  </header>
+
+  <footer class="fusszeile">
+    <p>DEUTSCHES KUNSTARCHIV im Germanischen Nationalmuseum, Seite<span class="page-number"></span></p>
+  </footer>
+
+  <div class="page">
+     <!-- 
+      Render the entity content and replace <a>-tags with <span>-tags 
+      so that links are not interactive in the PDF. 
+      The |raw filter ensures that the rendered HTML is output directly.
+    -->
+    {{ content|render|replace({'<a ':' <span ', ' </a>':'</span>'})|raw }}
+  </div>
+
+
+
+</body>
+
+</html>

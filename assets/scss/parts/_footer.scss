@@ -1,0 +1,74 @@
+footer {
+    background-color: $color-grey;
+    padding: $spacing-l 0;
+    padding-top: 150px;
+    z-index: 2;
+    position: relative;
+    * {
+        color: white !important;
+    }
+    
+    .footer__container__inner--wrapper {
+        grid-template-columns: 1fr 2fr;
+        gap: $spacing-m 15%;
+        grid-template-areas: "address txt" "address navlogo";
+        .footer__container__inner--txt {
+            grid-area: txt;
+        }
+        .footer__container__inner--navlogo {
+            grid-area: navlogo;
+            .region--footer-nav-right {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: $spacing-m;
+                justify-content: space-between;
+                ul.menu {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    li {
+                        margin-bottom: $spacing-s;
+                        a {
+                            display: block;
+                            @include font-text-bold;
+                            &::after {
+                                content: "❯";
+                                margin-left: 10px;
+                            }
+                            &:hover {
+                                &::after {
+                                    margin-left: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer__container__inner--address {
+            grid-area: address;
+            img {
+                margin-bottom: $spacing-m;
+            }
+            a {
+                @include font-text-bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-m-width){
+    footer {
+    padding: $spacing-l 0;
+    padding-top: 150px;
+    .footer__container__inner--wrapper {
+      display: block;
+      .footer__container__inner--txt {
+        margin: $spacing-m 0;
+      }
+    }
+    }
+}

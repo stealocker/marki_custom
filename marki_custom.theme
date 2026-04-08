@@ -1,0 +1,30 @@
+<?php
+function marki_custom_preprocess_layout_card_gedicht(&$variables) {
+  $variables['entity_id'] = $variables['content']['#wisski_individual']->id();
+}
+
+function marki_custom_preprocess_views_view_field(&$variables) {
+#  dpm("yay!!!111");
+#  dpm(serialize($variables));
+  $view = $variables['view'];
+  $field = $variables['field'];
+  $output = $variables['output'];
+
+#  dpm(serialize($output));
+
+#  dpm($view->id());
+
+  if ($view->id() == "archivalien") {
+    $output = $output->__toString();
+    $output = preg_replace('/<a href=\"\/wisski\/navigate\/(\d+)\/view\">/', '<a href="/solr-archivalien/$1">', $output);
+    $variables['output'] =  [
+        '#markup' => htmlspecialchars_decode($output),
+      ];
+
+  }
+
+
+}
+
+//function marki_custom_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  //dpm($suggestions);}

@@ -1,0 +1,91 @@
+#header {
+    background-color: white;
+    position: fixed;
+    width: 100vw;
+    z-index: 9999;
+    .header__container{
+       grid-template-columns: 1fr 1fr;
+       justify-content: space-between;
+       align-items: center;
+    }
+    .header__container__inner--mobile-nav-toggle {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-image: url(../img/menu-hamburger.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 50%;
+        z-index: 999;
+        justify-self: end;
+    }
+    #primary-nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 50vw;
+        right: 0;
+        width: 50vw;
+        background-color: white;
+        z-index: 99;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 80px 10%;
+        li, li *{
+            border: none!important;
+        }
+        &.mobile-nav--active {
+            display: flex;
+            +.header__container__inner--mobile-nav-toggle {
+                background-image: url(../img/menu-close.svg);
+            }
+        }
+        #block-mainsearch{
+            margin-bottom: $spacing-l;
+        }
+        li,
+        ul {
+            width: 100%;
+            a {
+                margin-bottom: $spacing-s;
+                span {
+                    @include text-h3;
+                    @include font-text-bold;
+                }
+            }
+            .primary-nav__menu-item--level-1:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+    }
+    .site-branding__text{
+        display: none;
+    }
+    .site-branding,
+    #block-dka-custom-site-branding {
+        background-image: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        min-height: unset;
+        min-width: unset;
+        max-width: 100px;
+        z-index: 999;
+        .site-branding__inner{
+            height: unset;
+        }
+    }
+}
+
+.primary-nav__menu-link:hover .primary-nav__menu-link-inner:after {
+    display: none;
+}
+
+@media screen and (max-width: $breakpoint-m-width) {
+    #header {
+        #primary-nav {
+            left: 0;
+            width: 100vw;
+        }
+    }
+}

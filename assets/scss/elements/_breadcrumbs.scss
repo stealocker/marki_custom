@@ -1,0 +1,9 @@
+.breadcrumb{
+    a{
+        color: black;
+        @include text-smaller;
+    }
+    .breadcrumb__item:nth-child(n+2):before{
+        border-color: red!important;
+    }
+}

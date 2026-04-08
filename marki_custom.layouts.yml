@@ -1,0 +1,25 @@
+
+content_home_content:
+  label: Home Inhalt
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_home_content
+  regions:
+    title:
+      label: Titel
+    content:
+      label: Inhalt
+    img:
+      label: Bild
+content_pagedefault:
+  label: Page Default
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_pagedefault
+  regions:
+    title:
+      label: Titel
+    subtitle:
+      label: Introtext
+    content:
+      label: Inhalt
+    info:
+      label: Infos

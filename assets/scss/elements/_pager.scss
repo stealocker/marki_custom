@@ -1,0 +1,17 @@
+.pager {
+    margin-bottom: 10rem!important;
+    .pager__items {
+        .pager__item {
+            background-color: transparent!important;
+            color: $color-black;
+            &.pager__item--active {
+                background: none;
+            }
+            .pager__link:hover {
+                background-color: transparent!important;
+                color: $color-black;
+                @include font-text-bold;
+            }
+        }
+    }
+}

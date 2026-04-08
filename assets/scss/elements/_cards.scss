@@ -1,0 +1,10 @@
+.view--archivalien-suche .views-row {
+  background-color: #FFFFFF;
+  padding: 26px 38px 22px 24px;
+  margin-bottom: 30px;
+  border-left: 4px solid #e3001b;
+  transition: border-left 0.1s linear;
+  &:hover {
+      border-left: 4px solid #fff;
+    }
+}

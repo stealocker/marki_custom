@@ -1,0 +1,25 @@
+.btn,
+button, .button--primary {
+  border: 1px solid $color-red;
+  background-color: $color-red!important;
+  color: $color-white!important;
+  @include transition-all;
+  padding: 10px 18px 8px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  height: auto;
+  min-height: 35px;
+  width: auto;
+  display: table;
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    background-color: $color-white!important;
+    color: $color-red!important;
+  }
+}

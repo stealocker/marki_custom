@@ -1,0 +1,12 @@
+#toolbar-administration{
+    p, p *, a, a *, button, button *{
+        @include text-meta;
+        padding: 0.5em 1em;
+    }
+    .menu-item a{
+        padding: 0.5em 1em;
+    }
+    .toolbar-tab>a, button, .menu-item a{
+       padding-left: 3em;
+    }
+}
