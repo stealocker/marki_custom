@@ -8,16 +8,7 @@ Items for the first featured bottom region. * - page.featured_bottom_second: Ite
 Items for the breadcrumb region. * - page.social: Items for the social region. * * @see template_preprocess_page() * @see html.html.twig */ #}
 
 <div id="page" class="page">
-    {% if page.header or page.primary_menu %}
-    <header id="header" class="header" data-drupal-selector="site-header" role="banner">
-        <div class="header__container theme-content-container grid">
-            <div class="header__container__inner header__container__inner--signet"><a href="https://ais-dka.gnm.de" class="header__signet__link">{{ page.header_signet }}</a></div>
-                        <div class="header__container__inner--mobile-nav-toggle" tabindex="0" onclick="toggleMobileMenu()"></div>
-            <div id="primary-nav" class="header__container__inner header__container__inner--nav flex">{{ page.primary_menu }}</div>
-
-        </div>
-    </header>
-    {% endif %}
+    {% include '@marki_custom/header.html.twig' %}
     <div id="main-wrapper" class="main-wrapper theme-content-container main-wrapper--home">
 
         <div class="main-wrapper--body">
@@ -31,24 +22,4 @@ Items for the breadcrumb region. * - page.social: Items for the social region. *
 
     <div class="overlay" data-drupal-selector="overlay"></div>
 </div>
-<footer class="footer">
-	<div class="footer__container theme-content-container">
-		<div class="footer__container__inner--wrapper grid">
-        			{% if page.footer_nav_left %}
-				<div class="footer__container__inner--address">
-					{{ page.footer_nav_left }}
-				</div>
-			{% endif %}
-			{% if page.footer_txt %}
-				<div class="footer__container__inner footer__container__inner--txt">
-					{{ page.footer_txt }}
-				</div>
-			{% endif %}
-			{% if page.footer_nav_right %}
-				<div class="footer__container__inner--navlogo">
-					{{ page.footer_nav_right }}
-				</div>
-			{% endif %}
-		</div>
-	</div>
-</footer>
+    {% include '@marki_custom/footer.html.twig' %}

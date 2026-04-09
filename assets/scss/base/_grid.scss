@@ -1,5 +1,7 @@
 .grid {
     display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
     &--50-50 {
         grid-template-columns: 1fr 1fr;
         gap: $spacing-s;

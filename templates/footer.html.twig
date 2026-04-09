@@ -1,0 +1,34 @@
+<footer class="footer">
+	<div class="footer__container content-container grid">
+			{% if page.footer_logo_marki %}
+				<div class="footer__container__inner footer__container__inner--logo-marki">
+					{{ page.footer_logo_marki }}
+				</div>
+			{% endif %}
+			{% if page.footer_nav_main %}
+				<div class="footer__container__inner footer__container__inner--nav-main">
+					{{ page.footer_nav_main }}
+				</div>
+			{% endif %}
+			{% if page.footer_txt %}
+				<div class="footer__container__inner footer__container__inner--txt">
+					{{ page.footer_txt }}
+				</div>
+			{% endif %}
+			{% if page.footer_nav_legal %}
+				<div class="footer__container__inner footer__container__inner--nav-legal">
+					{{ page.footer_nav_legal }}
+				</div>
+			{% endif %}
+			{% if page.footer_logo_gnm %}
+				<div class="footer__container__inner footer__container__inner--logo-gnm">
+					{{ page.footer_logo_gnm }}
+				</div>
+			{% endif %}
+			{% if page.footer_logo_funding %}
+				<div class="footer__container__inner footer__container__inner--logo-funding">
+					{{ page.footer_logo_funding }}
+				</div>
+			{% endif %}
+		</div>
+</footer>

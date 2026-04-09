@@ -22,33 +22,53 @@ $max-container-width-xl: 2000px;
 // colors
 $color-black: #000000;
 $color-white: #FFFFFF;
-$color-grey: #E4E9F4;
+
+$color-lilac-pale: #EEEDF9;
+$color-lilac: #A09BE7;
+$color-lilac-dark: #3D31C9;
+
+$color-blue-pale: #E9F4FE;
+$color-blue: #D6EBFF;
+$color-blue-dark: #004F99;
+
+$color-green-pale: #EAF8DD;
+$color-green: #A7E26E;
+$color-green-dark: #345912;
+
+$color-grey-pale: #EBEEDD;
+$color-grey: #C9CBBE;
+
+$color-brown: #411500;
+
 // font-size and line-height
-$text-font-size: 2.2rem;
+$text-font-size: 1.8rem;
 $text-mt: 1em;
 $text-mb: 1em;
-$bigger-text-font-size: 3.5rem;
-$bigger-text-mt: 3.6em;
-$bigger-text-mb: 1.4em;
-$super-text-font-size: 9rem;
+$meta-text-font-size: 1.25rem;
+$meta-text-mt: 1em;
+$meta-text-mb: 1em;
+$bigger-text-font-size: 2.2rem;
+$bigger-text-mt: 1.2em;
+$bigger-text-mb: 1.2em;
+$super-text-font-size: 4rem;
 $super-text-mt: 3em;
 $super-text-mb: 3em;
-$h1-font-size: 9rem;
+$h1-font-size: 4rem;
 $h1-mt: 0;
 $h1-mb: 0.28em;
-$h2-font-size: 7rem;
+$h2-font-size: 3rem;
 $h2-mt: 1.85em;
 $h2-mb: 0.7em;
-$h3-font-size: 5rem;
+$h3-font-size: 2.6rem;
 $h3-mt: 1.85em;
 $h3-mb: 0.7em;
-$h4-font-size: 3.5rem;
+$h4-font-size: 2.2rem;
 $h4-mt: 1.85em;
 $h4-mb: 0.7em;
-$h5-font-size: 2.8rem;
+$h5-font-size: 2rem;
 $h5-mt: 1.85em;
 $h5-mb: 0.7em;
-$h6-font-size: 2.2rem;
+$h6-font-size: 1.8rem;
 $h6-mt: 1.85em;
 $h6-mb: 0.7em;
 $hero-font-size: 28rem;

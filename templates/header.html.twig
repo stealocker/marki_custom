@@ -1,0 +1,52 @@
+<!-- start #site-header -->
+<header id="site-header" class="site-header">
+    <div class="site-header__container grid content-container">
+        <!-- start .site-branding -->
+        <div class="site-branding">
+            {% if page.header_signet %}
+                {{ page.header_signet }}
+            {% else %}
+                <a href="{{ path('<front>') }}">Startseite</a>
+            {% endif %}
+        </div>
+        <!-- end .site-branding -->
+        <!-- start .site-navigation-wrapper -->
+        <div class="site-navigation-wrapper mobile-toggle-wrapper">
+            <!-- start #menu-toggle -->
+            <button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <img src="{{ file_url(directory ~ '/assets/img/menu-hamburger.svg') }}" alt="icon menu toggle">
+            </button>
+        </div>
+        <!-- end #menu-toggle -->
+
+    </div>
+    <!-- end .site-navigation-wrapper -->
+    <!-- start .navigation-overlay -->
+    <div class="navigation-overlay content-container navigation-overlay--hidden">
+        <div id="site-navigation" class="site-navigation content-container top-bottom-container grid">
+            {% if page.header_searchlink_menu %}
+                <div class="header-item header-item__searchlink-menu">
+                    {{ page.header_searchlink_menu }}
+                </div>
+            {% endif %}
+            {% if page.header_primary_menu %}
+                <div class="header-item header-item__primary-menu">
+                    {{ page.header_primary_menu }}
+                </div>
+            {% endif %}
+            {% if page.header_gnmlink %}
+                <div class="header-item header-item__gnmlink">
+                    {{ page.header_gnmlink }}
+                </div>
+            {% endif %}
+            {% if page.header_legallinks %}
+                <div class="header-item header-item__legallinks">
+                    {{ page.header_legallinks }}
+                </div>
+            {% endif %}
+        </div>
+        <a class="skip-link screen-reader-text accessibility--menu-close" onkeydown="menuToggleKeyDown(event)" href="">Menü schließen</a>
+    </div>
+        <!-- end .navigation-overlay -->
+    </header>
+    <!-- end #site-header -->

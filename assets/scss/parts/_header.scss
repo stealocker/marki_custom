@@ -1,91 +1,195 @@
-#header {
+#site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: white;
-    position: fixed;
-    width: 100vw;
-    z-index: 9999;
-    .header__container{
-       grid-template-columns: 1fr 1fr;
-       justify-content: space-between;
-       align-items: center;
-    }
-    .header__container__inner--mobile-nav-toggle {
-        display: block;
-        width: 40px;
-        height: 40px;
-        background-image: url(../img/menu-hamburger.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% 50%;
-        z-index: 999;
-        justify-self: end;
-    }
-    #primary-nav {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 50vw;
-        right: 0;
-        width: 50vw;
-        background-color: white;
-        z-index: 99;
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 80px 10%;
-        li, li *{
-            border: none!important;
-        }
-        &.mobile-nav--active {
-            display: flex;
-            +.header__container__inner--mobile-nav-toggle {
-                background-image: url(../img/menu-close.svg);
-            }
-        }
-        #block-mainsearch{
-            margin-bottom: $spacing-l;
-        }
-        li,
-        ul {
-            width: 100%;
-            a {
-                margin-bottom: $spacing-s;
-                span {
-                    @include text-h3;
-                    @include font-text-bold;
+    min-height: unset;
+
+    .site-header__container {
+        position: relative;
+        width: 100%;
+        padding-top: $spacing-s;
+        padding-bottom: $spacing-s;
+        grid-template-columns: 20% auto 45px;
+        grid-template-areas: "logo space nav";
+        gap: $spacing-s;
+        align-items: center;
+        border-bottom: 1px solid black;
+
+        .site-branding {
+            grid-area: logo;
+            background-image: none;
+            margin: 0;
+            padding: 0;
+            min-height: unset;
+
+            .site-branding__inner {
+                margin: 0;
+                padding: 0;
+                height: auto;
+
+                .site-branding__logo {
+                    margin: 0;
+                    padding: 0;
                 }
             }
-            .primary-nav__menu-item--level-1:not(:last-child) {
-                margin-right: 0;
+        }
+
+
+
+        .site-navigation-wrapper {
+            grid-area: nav;
+
+            #menu-toggle {
+                width: 3rem;
+                height: 3rem;
+                padding: 5px;
+                z-index: 999;
+                background-color: white;
+                position: relative;
+                margin: 0;
             }
         }
+
+
     }
-    .site-branding__text{
-        display: none;
-    }
-    .site-branding,
-    #block-dka-custom-site-branding {
-        background-image: none;
-        background-color: transparent;
-        margin: 0;
-        padding: 0;
-        min-height: unset;
-        min-width: unset;
-        max-width: 100px;
-        z-index: 999;
-        .site-branding__inner{
-            height: unset;
+
+    .navigation-overlay {
+        grid-area: overlay;
+        background-color: white;
+        z-index: 99;
+        position: relative;
+        border-bottom: 2px solid black;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background-color: black;
+            left: 50%;
+            bottom: 0;
         }
-    }
-}
 
-.primary-nav__menu-link:hover .primary-nav__menu-link-inner:after {
-    display: none;
-}
+        &--hidden {
+            display: none;
+        }
 
-@media screen and (max-width: $breakpoint-m-width) {
-    #header {
-        #primary-nav {
-            left: 0;
-            width: 100vw;
+        &--open {
+            display: block;
+        }
+
+        nav {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+
+            .menu__item {
+                margin: 0;
+
+                .menu__link {
+                    @include text-bigger;
+                    @include font-text-bold;
+                    color: black;
+                    margin: 0;
+                }
+            }
+
+        }
+
+        #site-navigation {
+            grid-template-areas: "space search search search search search space2 gnm gnm gnm gnm space3" "space main main main main main space2 gnm gnm gnm gnm space3" "space main main main main main space2 legal legal legal legal legal";
+            padding-top: 0;
+            padding-bottom: 0;
+            align-items: first baseline;
+        }
+
+        .header-item {
+            &__searchlink-menu {
+                grid-area: search;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 50%;
+                    height: 1px;
+                    background-color: black;
+                    left: 0;
+                }
+            }
+
+            &__primary-menu {
+                grid-area: main;
+            }
+
+            &__gnmlink {
+                grid-area: gnm;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 50%;
+                    height: 1px;
+                    background-color: black;
+                    left: 50%;
+                }
+
+                .block{
+                    margin: 0;
+                    padding: 0;
+                }
+
+                a {
+                    @include text-bigger;
+                    @include font-text-bold;
+                    color: $color-blue-dark;
+                    margin: 0;
+                    border: none;
+                    background: none;
+                    box-shadow: none;
+
+                    &:hover {
+                        border: none;
+                        background: none;
+                        box-shadow: none;
+                        text-decoration: none;
+                    }
+
+                    &::after {
+                        content: "🡭";
+                        margin-left: 0.4rem;
+                    }
+                }
+            }
+
+            &__legallinks {
+                grid-area: legal;
+            }
+
+            .region {
+                padding: 3rem 0;
+            }
+        }
+
+        #primary-menu {
+            list-style-type: none;
+            overflow-y: auto;
+
+            li {
+                padding: $spacing-s 0;
+
+                a {
+                    @include text-bigger;
+                }
+            }
         }
     }
 }

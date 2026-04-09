@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function marki_custom_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function marki_custom_preprocess_html(&$variables) {
+  $variables['#attached']['drupalSettings']['marki_custom']['theme_path'] = \Drupal::service('extension.list.theme')->getPath('marki_custom');
+}
+
 function marki_custom_preprocess_layout_card_gedicht(&$variables) {
   $variables['entity_id'] = $variables['content']['#wisski_individual']->id();
 }

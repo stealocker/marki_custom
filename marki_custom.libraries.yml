@@ -3,5 +3,9 @@ global-styling:
     theme:
       assets/css/style.css: {}
   js:
-    assets/js/scripts.js: {}
-
+    assets/js/navigation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once
