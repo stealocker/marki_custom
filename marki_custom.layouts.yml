@@ -67,7 +67,7 @@ content_object-preview:
     objects:
       label: Objekte
 content_object-card:
-  label: MarKI Objektvorschau
+  label: MarKI Objektcard
   category: MarKI Custom
   template: templates/custom-layouts/layout_object-card
   regions:
