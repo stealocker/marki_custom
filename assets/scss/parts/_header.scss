@@ -4,6 +4,7 @@
     z-index: 100;
     background-color: white;
     min-height: unset;
+    border-block-end: none;
 
     .site-header__container {
         position: relative;
@@ -34,8 +35,6 @@
                 }
             }
         }
-
-
 
         .site-navigation-wrapper {
             grid-area: nav;

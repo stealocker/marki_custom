@@ -1,0 +1,10 @@
+.layout--basicblock {
+    position: relative;
+.img-size{
+    &--full{
+       @include content-container-width-correction-whole;
+       @include content-container-position-correction-left;
+       max-width: unset;
+    }
+}
+}

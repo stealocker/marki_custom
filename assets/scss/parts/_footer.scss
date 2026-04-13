@@ -4,16 +4,19 @@ footer {
             "markilogo markilogo text text text text text text text gnmlogo gnmlogo gnmlogo"
             "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu gnmlogo gnmlogo gnmlogo"
             "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu funding funding funding"
+            "markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu funding funding funding"
             "markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu funding funding funding";
         border-top: 1px solid black;
         padding-top: 6rem;
         position: relative;
 
         .footer__container__inner {
-
+            nav{
+                margin: 0;
+            }
             .menu{
                 list-style-type: none;
-                padding: 0;
+                padding: 4rem 0;
                 margin: 0;
                 display: flex;
                 flex-wrap: wrap;
@@ -72,7 +75,7 @@ footer {
                 grid-area: gnmlogo;
                 position: relative;
 
-                &::after {
+                &::before {
                     content: "";
                     display: block;
                     height: calc(100% + 6rem);
@@ -82,12 +85,22 @@ footer {
                     left: 0;
                     top: -6rem;
                 }
+                                &::after {
+                    content: "";
+                    display: block;
+                    // check on big screen additional-width
+                    @include content-container-width-correction-half;
+                    height: 1px;
+                    background-color: black;
+                    position: absolute;
+                    bottom: 0;
+                }
             }
 
             &--logo-funding {
                 grid-area: funding;
                 position: relative;
-
+                padding-top: 4rem!important;
                 &::after {
                     content: "";
                     display: block;
@@ -107,7 +120,13 @@ footer {
                 gap: 1rem;
                 grid-template-areas: "space content content";
                 padding: 0 4rem;
-
+                p{
+                    @include font-text-bold;
+                    margin-bottom: 1rem;
+                }
+                img {
+                    padding-top: 3rem;
+                }
                 .region {
                     grid-area: content;
                 }

@@ -1,0 +1,9 @@
+{% set placeholder = content.field_searchbar_placeholder[0] %}
+
+<section class="searchbar content-container">
+	<div class="searchbar__wrapper grid">
+		<input type="text" placeholder='{{ placeholder }}' />
+		<button class="button--search" type="submit">{{ content.field_searchbar_buttontext[0] }}</button>
+		<button class="button--camera"><img src="{{ file_url(directory ~ '/assets/img/camera.svg') }}" alt="icon camera"></button>
+	</div>
+</section>

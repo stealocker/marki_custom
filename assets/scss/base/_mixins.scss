@@ -174,3 +174,55 @@
     }
     */
 }
+
+@mixin content-container-width-correction-whole($additional-spacing: 0px){
+    width: calc(100% + ($spacing-l*2) + $additional-spacing);
+    @media screen and (max-width: $breakpoint-l-width) {
+        width: calc(100% + ($spacing-m*2) + $additional-spacing);
+    }
+    @media screen and (max-width: $breakpoint-m-width) {
+        width: calc(100% + ($spacing-s*2) + $additional-spacing);
+    }
+    @media screen and (max-width: $breakpoint-s-width) {
+        width: calc(100% + ($spacing-mobile*2) + $additional-spacing);
+    }
+}
+
+@mixin content-container-width-correction-half($additional-spacing: 0px){
+    width: calc(100% + $spacing-l + $additional-spacing);
+    @media screen and (max-width: $breakpoint-l-width) {
+        width: calc(100% + $spacing-m + $additional-spacing);
+    }
+    @media screen and (max-width: $breakpoint-m-width) {
+        width: calc(100% + $spacing-s + $additional-spacing);
+    }
+    @media screen and (max-width: $breakpoint-s-width) {
+        width: calc(100% + $spacing-mobile + $additional-spacing);
+    }
+}
+
+@mixin content-container-position-correction-left($additional-spacing: 0px){
+    transform: translateX( calc($spacing-l + $additional-spacing) * -1 );
+    @media screen and (max-width: $breakpoint-l-width) {
+        transform: translateX( calc($spacing-m + $additional-spacing) * -1 );
+    }
+    @media screen and (max-width: $breakpoint-m-width) {
+        transform: translateX( calc($spacing-s + $additional-spacing) * -1 );
+    }
+    @media screen and (max-width: $breakpoint-s-width) {
+        transform: translateX( calc($spacing-mobile + $additional-spacing) * -1 );
+    }
+}
+
+@mixin content-container-position-correction-right($additional-spacing: 0px){
+    transform: translateX( calc($spacing-l + $additional-spacing) );
+    @media screen and (max-width: $breakpoint-l-width) {
+        transform: translateX( calc($spacing-m + $additional-spacing) );
+    }
+    @media screen and (max-width: $breakpoint-m-width) {
+        transform: translateX( calc($spacing-s + $additional-spacing) );
+    }
+    @media screen and (max-width: $breakpoint-s-width) {
+        transform: translateX( calc($spacing-mobile + $additional-spacing) );
+    }
+}

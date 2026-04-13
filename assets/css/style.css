@@ -157,6 +157,17 @@ img.avatar {
   white-space: nowrap !important;
 }
 
+.grid-full {
+  display: block;
+  width: 100%;
+}
+
+.block {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 #page.site {
   width: 100vw;
 }
@@ -683,6 +694,7 @@ button:hover, .button--primary:hover {
   z-index: 100;
   background-color: white;
   min-height: unset;
+  border-block-end: none;
 }
 #site-header .site-header__container {
   position: relative;
@@ -848,14 +860,17 @@ button:hover, .button--primary:hover {
 }
 
 footer .footer__container {
-  grid-template-areas: "markilogo markilogo text text text text text text text gnmlogo gnmlogo gnmlogo" "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu gnmlogo gnmlogo gnmlogo" "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu funding funding funding" "markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu funding funding funding";
+  grid-template-areas: "markilogo markilogo text text text text text text text gnmlogo gnmlogo gnmlogo" "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu gnmlogo gnmlogo gnmlogo" "markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu funding funding funding" "markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu funding funding funding" "markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu funding funding funding";
   border-top: 1px solid black;
   padding-top: 6rem;
   position: relative;
 }
+footer .footer__container .footer__container__inner nav {
+  margin: 0;
+}
 footer .footer__container .footer__container__inner .menu {
   list-style-type: none;
-  padding: 0;
+  padding: 4rem 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -907,7 +922,7 @@ footer .footer__container .footer__container__inner--logo-gnm {
   grid-area: gnmlogo;
   position: relative;
 }
-footer .footer__container .footer__container__inner--logo-gnm::after {
+footer .footer__container .footer__container__inner--logo-gnm::before {
   content: "";
   display: block;
   height: calc(100% + 6rem);
@@ -917,9 +932,36 @@ footer .footer__container .footer__container__inner--logo-gnm::after {
   left: 0;
   top: -6rem;
 }
+footer .footer__container .footer__container__inner--logo-gnm::after {
+  content: "";
+  display: block;
+  width: calc(100% + 50px + 0px);
+}
+@media screen and (max-width: 1200px) {
+  footer .footer__container .footer__container__inner--logo-gnm::after {
+    width: calc(100% + 30px + 0px);
+  }
+}
+@media screen and (max-width: 768px) {
+  footer .footer__container .footer__container__inner--logo-gnm::after {
+    width: calc(100% + 21px + 0px);
+  }
+}
+@media screen and (max-width: 375px) {
+  footer .footer__container .footer__container__inner--logo-gnm::after {
+    width: calc(100% + 16px + 0px);
+  }
+}
+footer .footer__container .footer__container__inner--logo-gnm::after {
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
 footer .footer__container .footer__container__inner--logo-funding {
   grid-area: funding;
   position: relative;
+  padding-top: 4rem !important;
 }
 footer .footer__container .footer__container__inner--logo-funding::after {
   content: "";
@@ -937,6 +979,15 @@ footer .footer__container .footer__container__inner--logo-funding, footer .foote
   gap: 1rem;
   grid-template-areas: "space content content";
   padding: 0 4rem;
+}
+footer .footer__container .footer__container__inner--logo-funding p, footer .footer__container .footer__container__inner--logo-gnm p {
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+footer .footer__container .footer__container__inner--logo-funding img, footer .footer__container .footer__container__inner--logo-gnm img {
+  padding-top: 3rem;
 }
 footer .footer__container .footer__container__inner--logo-funding .region, footer .footer__container .footer__container__inner--logo-gnm .region {
   grid-area: content;
@@ -960,6 +1011,97 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   position: absolute;
   left: -1rem;
   bottom: 0;
+}
+
+.searchbar {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.searchbar__wrapper {
+  align-items: center;
+  grid-template-areas: "input input input input input input input input input search search camera";
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 12rem;
+}
+.searchbar__wrapper input,
+.searchbar__wrapper button {
+  font-size: 2.2rem;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  margin: 0;
+}
+.searchbar__wrapper input {
+  width: auto;
+  border: none;
+  padding: 0.5em 1em;
+  padding-top: 2rem;
+  grid-area: input;
+}
+.searchbar__wrapper button {
+  padding-top: 2rem;
+}
+.searchbar__wrapper .button--search {
+  grid-area: search;
+  justify-self: end;
+  padding: 0 4rem;
+  padding-top: 1rem;
+}
+.searchbar__wrapper .button--camera {
+  grid-area: camera;
+  justify-self: stretch;
+  background-color: transparent;
+}
+.searchbar__wrapper .button--camera img {
+  height: 4rem;
+}
+
+.layout--basicblock {
+  position: relative;
+}
+.layout--basicblock .img-size--full {
+  width: calc(100% + 100px + 0px);
+}
+@media screen and (max-width: 1200px) {
+  .layout--basicblock .img-size--full {
+    width: calc(100% + 60px + 0px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .layout--basicblock .img-size--full {
+    width: calc(100% + 42px + 0px);
+  }
+}
+@media screen and (max-width: 375px) {
+  .layout--basicblock .img-size--full {
+    width: calc(100% + 32px + 0px);
+  }
+}
+.layout--basicblock .img-size--full {
+  transform: translateX(-50px);
+}
+@media screen and (max-width: 1200px) {
+  .layout--basicblock .img-size--full {
+    transform: translateX(-30px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .layout--basicblock .img-size--full {
+    transform: translateX(-21px);
+  }
+}
+@media screen and (max-width: 375px) {
+  .layout--basicblock .img-size--full {
+    transform: translateX(-16px);
+  }
+}
+.layout--basicblock .img-size--full {
+  max-width: unset;
 }
 
 /*# sourceMappingURL=style.css.map */

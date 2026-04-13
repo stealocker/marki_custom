@@ -23,3 +23,46 @@ content_pagedefault:
       label: Inhalt
     info:
       label: Infos
+content_searchbar:
+  label: Suchleiste
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_searchbar
+  regions:
+    placeholder:
+      label: Platzhaltertext Suchfeld
+    button:
+      label: Buttontext
+content_basicblock:
+  label: MarKI Basic Block
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_basicblock
+  regions:
+    content:
+      label: Inhalt
+content_introtext:
+  label: MarKI Introtext
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_introtext
+  regions:
+    headline:
+      label: Überschrift
+    content:
+      label: Inhalt
+content_aboutus-teaser:
+  label: MarKI Über uns Teaser
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_aboutus-teaser
+  regions:
+    headline:
+      label: Überschrift
+    content:
+      label: Inhalt
+    img:
+      label: Bild
+content_object-preview:
+  label: MarKI Objektvorschau
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_object-preview
+  regions:
+    objects:
+      label: Objekte

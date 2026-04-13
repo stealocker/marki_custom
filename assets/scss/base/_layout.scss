@@ -15,6 +15,7 @@
     }
 }
 
+// when changing this, also change the mixins for content container width correction in _mixins.scss
 .content-container {
     max-width: $max-container-width-xl;
     margin: 0 auto;
