@@ -1,0 +1,12 @@
+.layout--object-preview {
+    margin-bottom: 2rem;
+
+    .object-list {
+        display: grid;
+        gap: 1rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
+}

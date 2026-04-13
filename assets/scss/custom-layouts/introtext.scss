@@ -1,0 +1,12 @@
+.layout--introtext {
+    grid-template-areas: "headline headline headline headline headline headline space content content content content content";
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    h1 {
+        grid-area: headline;
+    }
+
+    .introtext-content {
+        grid-area: content;
+    }
+}

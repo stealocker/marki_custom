@@ -66,3 +66,16 @@ content_object-preview:
   regions:
     objects:
       label: Objekte
+content_object-card:
+  label: MarKI Objektvorschau
+  category: MarKI Custom
+  template: templates/custom-layouts/layout_object-card
+  regions:
+    img:
+      label: Bild
+    objnumber:
+      label: Objektnummer
+    title:
+      label: Titel
+    artist:
+      label: Künstler:in
