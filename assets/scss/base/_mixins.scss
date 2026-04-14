@@ -226,3 +226,9 @@
         transform: translateX( calc($spacing-mobile + $additional-spacing) );
     }
 }
+
+@mixin grid() {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}

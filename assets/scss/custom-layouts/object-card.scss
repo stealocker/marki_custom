@@ -1,50 +1,50 @@
 .layout--object-card {
-    .card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+    &:hover {}
+
+}
+
+.card {
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 17 / 20;
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        &__image {
+        * {
             width: 100%;
-            height: 200px;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+            height: 100%;
+            object-fit: cover;
         }
+    }
 
-        &__content {
-            padding: 1rem;
+    &__content {
+        padding: 1rem;
+        &--number {
+                        border-top: 1px solid black;
+            border-bottom: 1px solid black;
         }
+        * {
+            margin: 0!important;
+        }
+    }
 
-        &__objnumber {
-            font-size: 0.875rem;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
+    &__objnumber, &__objnumber * {
+        @include text-meta;
+        @include font-text-bold;
+    }
 
-        &__title {
-            font-size: 1.125rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
+    &__title, &__title * {
+        color: $color-blue-dark;
+        @include font-text-bold;
+    }
 
-        &__artist {
-            font-size: 0.875rem;
-            color: #888;
-            font-style: italic;
-        }
+    &__artist, &__artist * {
+                @include text-meta;
+        @include font-text-bold;
+        margin-top: 0.5rem!important;
     }
 }

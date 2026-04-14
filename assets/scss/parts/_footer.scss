@@ -51,7 +51,7 @@ footer {
 
             &--txt {
                 grid-area: text;
-
+                padding-bottom: 6rem;
             }
 
             &--nav-main {
@@ -74,7 +74,6 @@ footer {
             &--logo-gnm {
                 grid-area: gnmlogo;
                 position: relative;
-
                 &::before {
                     content: "";
                     display: block;
@@ -120,6 +119,7 @@ footer {
                 gap: 1rem;
                 grid-template-areas: "space content content";
                 padding: 0 4rem;
+                                padding-bottom: 6rem!important;
                 p{
                     @include font-text-bold;
                     margin-bottom: 1rem;

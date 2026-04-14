@@ -1,9 +1,54 @@
 .layout--object-preview {
-    margin-bottom: 2rem;
+    margin-bottom: 10rem;
+    overflow-x: auto;
 
     .object-list {
-        display: grid;
-        gap: 1rem;
+        position: relative;
+
+        &>.field__items {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            overflow-x: visible;
+            padding-bottom: 1rem;
+            width: 100%;
+            position: relative;
+
+            &::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                position: relative;
+                width: calc(50vw - 50%);
+                height: 10px;
+                min-width: $spacing-l;
+
+                @media screen and (max-width: $breakpoint-l-width) {
+                    min-width: $spacing-m;
+                }
+
+                @media screen and (max-width: $breakpoint-m-width) {
+                    min-width: $spacing-s;
+                }
+
+                @media screen and (max-width: $breakpoint-s-width) {
+                    min-width: $spacing-mobile;
+                }
+            }
+
+            &>.field__item {
+                width: 25%;
+                flex: 0 0 auto;
+            }
+        }
 
         @media (min-width: 768px) {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
