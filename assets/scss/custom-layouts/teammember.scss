@@ -1,0 +1,24 @@
+.layout--teammember {
+
+  .team-member__image {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+
+    * {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+    }
+  }
+
+  .team-member__name *{
+    @include font-text-bold;
+    @include text-h5;
+    margin-top: 2rem;
+  }
+
+}

@@ -1,7 +1,7 @@
 
 content_home_content:
   label: Home Inhalt
-  category: MarKI Custom
+  category: MarKI Custom Pages
   template: templates/custom-layouts/layout_home_content
   regions:
     title:
@@ -12,7 +12,7 @@ content_home_content:
       label: Bild
 content_pagedefault:
   label: Page Default
-  category: MarKI Custom
+  category: MarKI Custom Pages
   template: templates/custom-layouts/layout_pagedefault
   regions:
     title:
@@ -25,7 +25,7 @@ content_pagedefault:
       label: Infos
 content_searchbar:
   label: Suchleiste
-  category: MarKI Custom
+  category: MarKI Custom Blocks
   template: templates/custom-layouts/layout_searchbar
   regions:
     placeholder:
@@ -34,14 +34,14 @@ content_searchbar:
       label: Buttontext
 content_basicblock:
   label: MarKI Basic Block
-  category: MarKI Custom
+  category: MarKI Custom Blocks
   template: templates/custom-layouts/layout_basicblock
   regions:
     content:
       label: Inhalt
 content_introtext:
   label: MarKI Introtext
-  category: MarKI Custom
+  category: MarKI Custom Blocks
   template: templates/custom-layouts/layout_introtext
   regions:
     headline:
@@ -50,7 +50,7 @@ content_introtext:
       label: Inhalt
 content_aboutus-teaser:
   label: MarKI Über uns Teaser
-  category: MarKI Custom
+  category: MarKI Custom Blocks
   template: templates/custom-layouts/layout_aboutus-teaser
   regions:
     headline:
@@ -59,16 +59,51 @@ content_aboutus-teaser:
       label: Inhalt
     img:
       label: Bild
+content_aboutus:
+  label: Über Uns Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_aboutus
+  regions:
+    headline:
+      label: Überschrift
+    introtxt:
+      label: Introtext
+    img:
+      label: Bild
+    accordions:
+      label: Akkordeontexte
+    persons:
+      label: Personen
+    persons_gone:
+      label: Ehemalige Personen
+content_accordion:
+  label: Akkordeon
+  category: MarKI Custom Blocks
+  template: templates/custom-layouts/layout_accordion
+  regions:
+    title:
+      label: Titel
+    content:
+      label: Inhalt
+content_teammember:
+  label: Teammitglied
+  category: MarKI Custom Blocks
+  template: templates/custom-layouts/layout_teammember
+  regions:
+    img:
+      label: Bild
+    name:
+      label: Name
 content_object-preview:
   label: MarKI Objektvorschau
-  category: MarKI Custom
+  category: MarKI Custom Blocks
   template: templates/custom-layouts/layout_object-preview
   regions:
     objects:
       label: Objekte
 content_object-card:
   label: MarKI Objektcard
-  category: MarKI Custom
+  category: MarKI Custom Cards
   template: templates/custom-layouts/layout_object-card
   regions:
     img:

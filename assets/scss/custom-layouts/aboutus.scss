@@ -1,0 +1,63 @@
+.layout--aboutus {
+  position: relative;
+
+  .aboutus__intro-wrapper {
+
+    grid-template-areas: "txt txt txt txt txt sapce space img img img img img";
+    margin-top: 8rem;
+    margin-bottom: 20rem;
+
+    .aboutus__intro-txt {
+      grid-area: txt;
+
+      .aboutus__headline {}
+
+      .aboutus__intro {
+        margin-top: 4rem;
+      }
+    }
+
+    .aboutus__image {
+      grid-area: img;
+      overflow: hidden;
+
+      * {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+      }
+    }
+  }
+
+  .aboutus__wrapper {
+    .aboutus__accordions {
+      margin-bottom: 20rem;
+    }
+
+    p.h6 {
+      margin-bottom: 6rem;
+    }
+
+    .aboutus__persons,
+    .aboutus__persons_gone {
+      margin-bottom: 10rem;
+
+      &>.field__items {
+        @include grid;
+        row-gap: 4rem;
+        &>.field__item {
+          grid-column-end: span 3;
+        }
+      }
+
+      .teammember {
+        grid-template-columns: span 3;
+      }
+    }
+     .aboutus__persons_gone {
+      margin-bottom: 20rem;
+     }
+  }
+}

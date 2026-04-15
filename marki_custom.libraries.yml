@@ -4,6 +4,7 @@ global-styling:
       assets/css/style.css: {}
   js:
     assets/js/navigation.js: {}
+    assets/js/scripts.js: {}
   dependencies:
     - core/jquery
     - core/drupal

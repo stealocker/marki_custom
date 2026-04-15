@@ -1,0 +1,10 @@
+<div class="accordion-item accordion--closed" aria-expanded="false" aria-controls="accordion__trigger-{{ content.id }}" id="accordion__content-{{ content.id }}">
+    <div class="accordion__content-wrapper grid">
+        <div class="accordion-item__header">
+            <div class="accordion-item__title">{{ content.title }}</div>
+            <button id="accordion__trigger-{{ content.id }}" class="accordion__trigger">
+            <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
+        </div>
+        <div class="accordion-item__content">{{ content.content }}</div>
+    </div>
+</div>

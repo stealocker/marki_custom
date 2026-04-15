@@ -8,11 +8,12 @@
         &>.field__items {
             display: flex;
             flex-wrap: nowrap;
-            gap: 1rem;
+            gap: 2rem;
             overflow-x: visible;
             padding-bottom: 1rem;
             width: 100%;
             position: relative;
+            align-items: stretch;
 
             &::-webkit-scrollbar {
                 height: 8px;
@@ -47,6 +48,7 @@
             &>.field__item {
                 width: 25%;
                 flex: 0 0 auto;
+                border: 1px solid black;
             }
         }
 

@@ -3,6 +3,7 @@
     border: 1px solid black;
     overflow: hidden;
     position: relative;
+
     &:hover {}
 
 }
@@ -23,28 +24,39 @@
 
     &__content {
         padding: 1rem;
+
         &--number {
-                        border-top: 1px solid black;
+            border-top: 1px solid black;
             border-bottom: 1px solid black;
         }
+
         * {
-            margin: 0!important;
+            margin: 0 !important;
         }
     }
 
-    &__objnumber, &__objnumber * {
+    &__objnumber,
+    &__objnumber * {
         @include text-meta;
         @include font-text-bold;
     }
 
-    &__title, &__title * {
+    &__title,
+    &__title * {
         color: $color-blue-dark;
         @include font-text-bold;
     }
 
-    &__artist, &__artist * {
-                @include text-meta;
+    &__artist,
+    &__artist * {
+        @include text-meta;
         @include font-text-bold;
-        margin-top: 0.5rem!important;
+        margin-top: 0.5rem !important;
+    }
+}
+
+.layout--object-preview {
+    .layout--object-card {
+        border: none;
     }
 }
