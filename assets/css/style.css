@@ -1247,42 +1247,9 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
 .accordion-item::after, .accordion-item::before {
   content: "";
   display: block;
-  width: calc(100% + 100px + 0px);
-}
-@media screen and (max-width: 1200px) {
-  .accordion-item::after, .accordion-item::before {
-    width: calc(100% + 60px + 0px);
-  }
-}
-@media screen and (max-width: 768px) {
-  .accordion-item::after, .accordion-item::before {
-    width: calc(100% + 42px + 0px);
-  }
-}
-@media screen and (max-width: 375px) {
-  .accordion-item::after, .accordion-item::before {
-    width: calc(100% + 32px + 0px);
-  }
-}
-.accordion-item::after, .accordion-item::before {
-  transform: translateX(-50px);
-}
-@media screen and (max-width: 1200px) {
-  .accordion-item::after, .accordion-item::before {
-    transform: translateX(-30px);
-  }
-}
-@media screen and (max-width: 768px) {
-  .accordion-item::after, .accordion-item::before {
-    transform: translateX(-21px);
-  }
-}
-@media screen and (max-width: 375px) {
-  .accordion-item::after, .accordion-item::before {
-    transform: translateX(-16px);
-  }
-}
-.accordion-item::after, .accordion-item::before {
+  position: absolute;
+  width: 100%;
+  left: 0;
   height: 1px;
   background-color: black;
 }

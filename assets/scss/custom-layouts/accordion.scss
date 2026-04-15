@@ -5,8 +5,9 @@
   &::before {
     content: "";
     display: block;
-    @include content-container-width-correction-whole;
-    @include content-container-position-correction-left;
+    position: absolute;
+    width: 100%;
+    left: 0;
     height: 1px;
     background-color: black;
   }
