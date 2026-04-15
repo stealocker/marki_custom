@@ -1,9 +1,12 @@
+{% set morelink = content.field_aboutus_link[0] %}
+
 <section class="layout--aboutus-teaser content-container">
 <div class="aboutus-teaser__wrapper grid">
     <div class="teaser-image">{{ content.img }}</div>
     <div class="teaser-txt">
         <h2>{{ content.headline }}</h2>
-        <div class="teaser-content">{{ content.content }}</div>
+        <div class="teaser-content">{{ content.content }}
+        <a href={{ morelink }} class="teaser-link">{{ content.field_aboutus_linktext[0] }}</a></div>
     </div>
 </div>
 </section>

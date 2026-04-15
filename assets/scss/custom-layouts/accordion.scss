@@ -35,6 +35,8 @@
       @include font-text-bold;
       @include text-h3;
       margin: 0;
+      text-decoration: underline;
+      text-underline-offset: 0.1em;
     }
   }
 
@@ -63,6 +65,11 @@
 }
 
 .accordion--closed {
+    .accordion-item__title {
+    * {
+      text-decoration: none;
+    }
+  }
   .accordion-item__content {
     display: none;
   }

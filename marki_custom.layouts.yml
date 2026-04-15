@@ -59,6 +59,8 @@ content_aboutus-teaser:
       label: Inhalt
     img:
       label: Bild
+    link:
+      label: Link
 content_aboutus:
   label: Über Uns Seite
   category: MarKI Custom Pages
@@ -76,6 +78,15 @@ content_aboutus:
       label: Personen
     persons_gone:
       label: Ehemalige Personen
+content_howtomarki:
+  label: How to MarKI Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_howtomarki
+  regions:
+    title:
+      label: Seitentitel
+    accordions:
+      label: Accordeontexte
 content_accordion:
   label: Akkordeon
   category: MarKI Custom Blocks

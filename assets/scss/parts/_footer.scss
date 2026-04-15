@@ -103,12 +103,12 @@ footer {
                 &::after {
                     content: "";
                     display: block;
-                    height: calc(100% + 1rem);
+                    height: calc(100% + 2rem);
                     width: 1px;
                     background-color: black;
                     position: absolute;
                     left: 0;
-                    top: -1rem;
+                    top: -2rem;
                 }
             }
 
@@ -147,11 +147,11 @@ footer {
                 &::after {
                     content: "";
                     display: block;
-                    width: calc(100% + 2rem);
+                    width: calc(100% + 4rem);
                     height: 1px;
                     background-color: black;
                     position: absolute;
-                    left: -1rem;
+                    left: -2rem;
                     bottom: 0;
                 }
             }

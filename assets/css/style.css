@@ -967,12 +967,12 @@ footer .footer__container .footer__container__inner--logo-funding {
 footer .footer__container .footer__container__inner--logo-funding::after {
   content: "";
   display: block;
-  height: calc(100% + 1rem);
+  height: calc(100% + 2rem);
   width: 1px;
   background-color: black;
   position: absolute;
   left: 0;
-  top: -1rem;
+  top: -2rem;
 }
 footer .footer__container .footer__container__inner--logo-funding, footer .footer__container .footer__container__inner--logo-gnm {
   display: grid;
@@ -1007,11 +1007,11 @@ footer .footer__container .footer__container__inner--txt .region, footer .footer
 footer .footer__container .footer__container__inner--txt::after, footer .footer__container .footer__container__inner--nav-main::after {
   content: "";
   display: block;
-  width: calc(100% + 2rem);
+  width: calc(100% + 4rem);
   height: 1px;
   background-color: black;
   position: absolute;
-  left: -1rem;
+  left: -2rem;
   bottom: 0;
 }
 
@@ -1186,6 +1186,11 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   margin-top: 1.85em;
   margin-bottom: 0.7em;
 }
+.layout--aboutus-teaser .aboutus-teaser__wrapper .teaser-txt .teaser-link {
+  display: block;
+  text-align: right;
+  margin-top: 2rem;
+}
 
 .layout--aboutus {
   position: relative;
@@ -1241,6 +1246,17 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   margin-bottom: 20rem;
 }
 
+.layout--howtomarki {
+  position: relative;
+}
+.layout--howtomarki .howtomarki__title {
+  margin-top: 8rem;
+  margin-bottom: 16rem;
+}
+.layout--howtomarki .howtomarki__accordions {
+  margin-bottom: 20rem;
+}
+
 .accordion-item {
   margin-bottom: 0;
 }
@@ -1277,6 +1293,8 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   margin-top: 1.85em;
   margin-bottom: 0.7em;
   margin: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
 }
 .accordion-item__header .accordion__trigger {
   grid-area: trigger;
@@ -1300,6 +1318,9 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   margin-top: 4rem;
 }
 
+.accordion--closed .accordion-item__title * {
+  text-decoration: none;
+}
 .accordion--closed .accordion-item__content {
   display: none;
 }
