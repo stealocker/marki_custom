@@ -46,10 +46,12 @@
                 @include text-h2;
             }
             .teaser-link{
+                @include text-meta;
+                @include font-text-bold;
                 display: block;
                 text-align: right;
                 margin-top: 2rem;
             }
         }
     }
-}
+} 

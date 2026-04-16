@@ -63,9 +63,83 @@
                     }
                 });
             });
-
         }
+    };
 
+    Drupal.behaviors.rearrangeContactPage = {
+        attach: function (context, settings) {
+            once('rearrangeContactPage', '.layout--contactpage', context).forEach(function (section) {
+                const form = section.closest('.contact-form');
+                if (!form) return;
+
+                // Move the h1 before the form if it's inside
+                const h1 = form.querySelector('.contactpage__title');
+                if (h1) {
+                    form.parentNode.insertBefore(h1, form);
+                }
+
+                const contactFormDiv = section.querySelector('.contactpage__form');
+                const contentDiv = section.querySelector('.contactpage__content');
+                const nameDiv = form.querySelector('#edit-name');
+                const mailDiv = form.querySelector('#edit-mail');
+                const actionsDiv = form.querySelector('#edit-actions');
+
+                // Detach the section from the form
+                form.removeChild(section);
+
+                // Move the section after the form
+                form.parentNode.insertBefore(section, form.nextSibling);
+
+                // Wrap the form in a .contactpage__form div
+                const formWrapper = document.createElement('div');
+                formWrapper.className = 'contactpage__form';
+
+                // Move non-field content from contactFormDiv to formWrapper
+                const children = Array.from(contactFormDiv.children);
+                children.forEach(child => {
+                    if (!child.classList.contains('js-form-wrapper')) {
+                        formWrapper.appendChild(child);
+                    }
+                });
+
+                // Append the form to formWrapper
+                formWrapper.appendChild(form);
+
+                // Insert formWrapper into section before contentDiv
+                section.insertBefore(formWrapper, contentDiv);
+
+                // Move the field wrappers from contactFormDiv to the form
+                const fields = contactFormDiv.querySelectorAll('.js-form-wrapper');
+                fields.forEach(field => form.appendChild(field));
+
+                // Remove the empty contactFormDiv
+                contactFormDiv.remove();
+
+                // Reorder the form items: name, mail, subject, message, dsgvo+actions
+                const subjectWrapper = form.querySelector('#edit-subject-wrapper');
+                const messageWrapper = form.querySelector('#edit-message-wrapper');
+                const dsgvoWrapper = form.querySelector('#edit-field-contactform-dsgvo-wrapper');
+
+                // Create a wrapper for dsgvo and actions
+                const submitWrapper = document.createElement('div');
+                submitWrapper.className = 'contactpage__dsgvo-submit-wrapper';
+
+                // Move dsgvo and actions into the wrapper
+                if (dsgvoWrapper) {
+                    submitWrapper.appendChild(dsgvoWrapper);
+                }
+                if (actionsDiv) {
+                    submitWrapper.appendChild(actionsDiv);
+                }
+
+                const order = [nameDiv, mailDiv, subjectWrapper, messageWrapper, submitWrapper];
+                order.forEach(el => {
+                    if (el) form.appendChild(el);
+                });
+            });
+        }
     };
 
 })(jQuery, Drupal, drupalSettings, once);
+
+

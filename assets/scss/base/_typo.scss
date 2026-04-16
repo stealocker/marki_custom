@@ -1,4 +1,4 @@
-html{
+html {
     font-size: calc(#{6px} + #{strip-unit(4px)} * ((100vw - #{$breakpoint-s-width}) / #{strip-unit($breakpoints-max-diff)}));
     line-height: 1.3;
 }
@@ -116,17 +116,24 @@ ul {
     @include font-text-bold;
 }
 
-a {
-    @include transition-all;
-    &.link--nostyle {
-        color: black;
+.dialog-off-canvas-main-canvas {
+    a {
+        @include transition-all;
+        color: black !important;
+        text-decoration: underline !important;
+
+        &.link--nostyle {
+            color: black;
+        }
+
+        &:hover {
+            text-decoration-thickness: 0.15em !important;
+        }
     }
 }
 
-a,
-a:active,
-a:focus,
-a:visited,
-a:hover {
-    text-decoration: none;
+a {
+    border: none !important;
+    box-shadow: none !important;
+    transition: none !important;
 }

@@ -87,6 +87,15 @@ content_howtomarki:
       label: Seitentitel
     accordions:
       label: Accordeontexte
+content_contactpage:
+  label: Kontakt Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_contactpage
+  regions:
+    form:
+      label: Formular
+    content:
+      label: Inhalt
 content_accordion:
   label: Akkordeon
   category: MarKI Custom Blocks

@@ -1,0 +1,189 @@
+h1.contactpage__title {
+  margin-top: 8rem;
+}
+
+.layout--contactpage {
+  position: relative;
+  grid-template-areas: "form form form form form space content content content content content content";
+  margin-top: 8rem;
+  margin-bottom: 16rem;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: black;
+  }
+
+  &::after {
+    top: 100%;
+    margin-top: -1px;
+  }
+
+  .contactpage__form {
+    grid-area: form;
+    border-right: 1px solid black;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      &>.form-item,
+      &>.form-wrapper,
+      &>.field--type-string-long {
+        padding: 0;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        position: relative;
+        margin-block: 0;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          height: 1px;
+          @include content-container-position-correction-left;
+          @include content-container-width-correction-half;
+          background-color: black;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      &>.field--type-string-long>.form-item {
+        padding: 0;
+        margin-block: 0;
+      }
+
+      .form-item {
+        margin-block: 0;
+      }
+    }
+
+    /* BIG MESSAGE FIELD */
+    .form-item-message-0-value {
+      align-items: start;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    /* LABELS */
+    label {
+      @include font-text-bold;
+      @include text-meta;
+    }
+
+    /* INPUTS + TEXTAREA */
+    input[type="text"],
+    textarea {
+      @include text-regular;
+      @include font-text-regular;
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 20px;
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      padding-right: 4rem;
+    }
+
+    /* TEXTAREA SIZE */
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+    }
+
+    /* REMOVE DEFAULT WRAPPER SPACING */
+    .form-item>div {
+      width: 100%;
+    }
+
+    /* CHECKBOX ROW */
+    .form-type-checkbox {
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .form-type-checkbox label {
+      padding: 0;
+    }
+
+    /* ACTION ROW (CHECKBOX + BUTTON) */
+    .contactpage__dsgvo-submit-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      border-bottom: 1px solid black;
+
+      .form-type-boolean{
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: 2rem auto;
+        gap: 2rem;
+        label{
+          display: none;
+        }
+        input[type="checkbox"]{
+          width: 2rem;
+          height: 2rem;
+        }
+        .form-item__description, a {
+          @include text-meta;
+          margin: 0;
+          line-height: 1.2;
+        }
+      }
+    }
+
+    .form-actions {
+      display: block;
+      margin-block: 0;
+      justify-self: end;
+
+      .button {
+        @include text-regular;
+        @include font-text-regular;
+        border: none;
+        background-color: $color-lilac-pale;
+        color: $color-black;
+        @include transition-all;
+        padding: 10px 18px 8px;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        height: 100%;
+        min-height: 35px;
+        width: auto;
+        display: table;
+        margin: 0;
+      }
+    }
+
+    /* BUTTON */
+    .button--primary {
+      background: #d9d9df;
+      border: none;
+      height: 100%;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .contactpage__content {
+    grid-area: content;
+    padding-top: 8rem;
+
+    .contactpage__address-wrapper {
+      padding-top: 4rem;
+
+      .contactpage__address-title {
+        @include font-text-bold;
+      }
+    }
+  }
+}

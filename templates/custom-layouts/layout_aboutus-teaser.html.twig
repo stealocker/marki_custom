@@ -1,4 +1,4 @@
-{% set morelink = content.field_aboutus_link[0] %}
+{% set morelink = content.field_aboutus_link.uri %}
 
 <section class="layout--aboutus-teaser content-container">
 <div class="aboutus-teaser__wrapper grid">
@@ -6,7 +6,7 @@
     <div class="teaser-txt">
         <h2>{{ content.headline }}</h2>
         <div class="teaser-content">{{ content.content }}
-        <a href={{ morelink }} class="teaser-link">{{ content.field_aboutus_linktext[0] }}</a></div>
+        <a href="{{ morelink }}" class="teaser-link">{{ content.field_aboutus_linktext[0] }}</a></div>
     </div>
 </div>
 </section>
