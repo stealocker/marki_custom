@@ -149,7 +149,7 @@
                 a {
                     @include text-bigger;
                     @include font-text-bold;
-                    color: $color-blue-dark;
+                    color: $color-blue-dark!important;
                     margin: 0;
                     border: none;
                     background: none;

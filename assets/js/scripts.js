@@ -80,8 +80,8 @@
 
                 const contactFormDiv = section.querySelector('.contactpage__form');
                 const contentDiv = section.querySelector('.contactpage__content');
-                const nameDiv = form.querySelector('#edit-name');
-                const mailDiv = form.querySelector('#edit-mail');
+                const nameWrapper = form.querySelector('#edit-name-wrapper');
+                const mailWrapper = form.querySelector('#edit-mail-wrapper');
                 const actionsDiv = form.querySelector('#edit-actions');
 
                 // Detach the section from the form
@@ -132,10 +132,58 @@
                     submitWrapper.appendChild(actionsDiv);
                 }
 
-                const order = [nameDiv, mailDiv, subjectWrapper, messageWrapper, submitWrapper];
+                const order = [nameWrapper, mailWrapper, subjectWrapper, messageWrapper, submitWrapper];
                 order.forEach(el => {
                     if (el) form.appendChild(el);
                 });
+            });
+        }
+    };
+
+    Drupal.behaviors.rearrangeViewsForm = {
+        attach: function (context, settings) {
+            once('rearrangeViewsForm', '.views-exposed-form', context).forEach(function (viewsForm) {
+                const targetContainer = context.querySelector('.region--page-header .block__content');
+                if (!targetContainer) {
+                    return;
+                }
+
+                if (targetContainer.querySelector('.search__form .views-exposed-form')) {
+                    return;
+                }
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'search__form content-container';
+
+                const textInput = viewsForm.querySelector('.form-text');
+                if (textInput) {
+                    textInput.placeholder = 'Suchbegriff hier eingeben';
+                }
+
+                const actionsDiv = viewsForm.querySelector('#edit-actions');
+                if (actionsDiv) {
+                    const input = actionsDiv.querySelector('input[type="submit"]');
+                    if (input && !input.classList.contains('button--search')) {
+                        input.classList.add('button--search');
+                    }
+
+                    const existingCameraButton = viewsForm.querySelector('.button--camera');
+                    if (!existingCameraButton) {
+                        const cameraButton = document.createElement('button');
+                        cameraButton.type = 'button';
+                        cameraButton.className = 'button--camera';
+
+                        const cameraIcon = document.createElement('img');
+                        cameraIcon.src = drupalSettings.marki_custom.theme_path + '/assets/img/camera.svg';
+                        cameraIcon.alt = 'icon camera';
+
+                        cameraButton.appendChild(cameraIcon);
+                        actionsDiv.parentNode.insertBefore(cameraButton, actionsDiv.nextSibling);
+                    }
+                }
+
+                wrapper.appendChild(viewsForm);
+                targetContainer.appendChild(wrapper);
             });
         }
     };

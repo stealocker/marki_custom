@@ -130,6 +130,15 @@ ul {
             text-decoration-thickness: 0.15em !important;
         }
     }
+    header{
+            a {
+        text-decoration: none !important;
+         &:hover {
+            text-decoration: underline !important;
+            text-decoration-thickness: 0.15em !important;
+        }
+    }
+    }
 }
 
 a {

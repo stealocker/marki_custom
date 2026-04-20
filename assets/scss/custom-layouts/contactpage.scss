@@ -78,6 +78,7 @@ h1.contactpage__title {
 
     /* INPUTS + TEXTAREA */
     input[type="text"],
+    input[type="email"],
     textarea {
       @include text-regular;
       @include font-text-regular;

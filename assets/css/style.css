@@ -228,6 +228,35 @@ img.avatar {
   }
 }
 
+.main-wrapper__container {
+  grid-template-areas: "content content content content content content content content content content content content";
+}
+.main-wrapper__container.main-wrapper__container--sidebar {
+  grid-template-areas: "content content content content content content content content sidebar sidebar sidebar";
+}
+.main-wrapper__container .content {
+  grid-area: content;
+}
+.main-wrapper__container .sidebar--content {
+  grid-area: sidebar;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  grid-template-areas: "line content content";
+}
+.main-wrapper__container .sidebar--content .region {
+  grid-area: content;
+}
+.main-wrapper__container .sidebar--content::before {
+  content: "";
+  display: block;
+  grid-area: line;
+  width: 1px;
+  background-color: black;
+  height: 100%;
+  justify-self: center;
+}
+
 html {
   font-size: calc(6px + 4 * (100vw - 375px) / 1545);
   line-height: 1.3;
@@ -416,6 +445,13 @@ ul {
   color: black;
 }
 .dialog-off-canvas-main-canvas a:hover {
+  text-decoration-thickness: 0.15em !important;
+}
+.dialog-off-canvas-main-canvas header a {
+  text-decoration: none !important;
+}
+.dialog-off-canvas-main-canvas header a:hover {
+  text-decoration: underline !important;
   text-decoration-thickness: 0.15em !important;
 }
 
@@ -827,7 +863,7 @@ button:hover, .button--primary:hover {
   font-family: ">>FONT NAME<<", Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
-  color: #004F99;
+  color: #004F99 !important;
   margin: 0;
   border: none;
   background: none;
@@ -1378,6 +1414,7 @@ h1.contactpage__title {
   /* INPUTS + TEXTAREA */
 }
 .layout--contactpage .contactpage__form input[type=text],
+.layout--contactpage .contactpage__form input[type=email],
 .layout--contactpage .contactpage__form textarea {
   font-size: 1.8rem;
   margin-top: 1em;
@@ -1704,6 +1741,82 @@ h1.contactpage__title {
 
 .layout--object-preview .layout--object-card {
   border: none;
+}
+
+.layout--entitywithimg {
+  position: relative;
+}
+.layout--withoutimg {
+  position: relative;
+}
+.search__form {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  transform: translateY(-1px);
+}
+.search__form form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  align-items: center;
+  grid-template-areas: "input input input input input input input input input search search camera";
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 12rem;
+}
+.search__form form * {
+  margin: 0;
+}
+.search__form form input,
+.search__form form button {
+  font-size: 2.2rem;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  margin: 0;
+}
+.search__form form div.form-item {
+  grid-area: input;
+  height: 100%;
+}
+.search__form form input.form-text {
+  width: 100%;
+  border: none;
+  padding: 0.5em 1em;
+  padding-top: 2rem;
+}
+.search__form form .form-actions {
+  grid-area: search;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+}
+.search__form form label {
+  display: none;
+}
+.search__form form button {
+  padding-top: 2rem;
+}
+.search__form form .button--search {
+  grid-area: search;
+  justify-self: end;
+  padding: 0 4rem;
+  padding-top: 1rem;
+}
+.search__form form .button--camera {
+  grid-area: camera;
+  justify-self: stretch;
+  background-color: transparent;
+}
+.search__form form .button--camera img {
+  height: 4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

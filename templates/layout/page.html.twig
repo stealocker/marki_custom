@@ -9,30 +9,32 @@ Items for the breadcrumb region. * - page.social: Items for the social region. *
 
 <div id="page" class="page">
     {% include '@marki_custom/header.html.twig' %}
-	<div id="main-wrapper" class="main-wrapper theme-content-container top-container">
-		{% if page.page_header %}
-			{{ page.page_header }}
-		{% endif %}
+    <div id="main-wrapper" class="main-wrapper theme-content-container top-container">
+        {% if page.page_header %}
+            {{ page.page_header }}
+        {% endif %}
 
-		<div class="main-wrapper--body">
-			<div class="main-wrapper__container main-wrapper__container--body flex">
+        <div class="main-wrapper--body">
 
-				{% if page.sidebar %}
-					<div class="content content--aside-content">
-						{{ page.content }}
-					</div>
-					<div class="sidebar--content">
-						{{ page.sidebar }}
-					</div>
-				{% else %}
-					<div class="content content--single">
-						{{ page.content }}
-					</div>
-				{% endif %}
-			</div>
-		</div>
-	</div>
+            {% if page.sidebar %}
+                <div class="main-wrapper__container main-wrapper__container--sidebar main-wrapper__container--body grid content-container">
+                    <div class="content content--aside-content">
+                        {{ page.content }}
+                    </div>
+                    <div class="sidebar--content">
+                        {{ page.sidebar }}
+                    </div>
+                {% else %}
+                    <div class="main-wrapper__container main-wrapper__container--body grid">
 
-	<div class="overlay" data-drupal-selector="overlay"></div>
-</div>
+                        <div class="content content--single">
+                            {{ page.content }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" data-drupal-selector="overlay"></div>
+    </div>
     {% include '@marki_custom/footer.html.twig' %}

@@ -134,3 +134,37 @@ content_object-card:
       label: Titel
     artist:
       label: Künstler:in
+content_entitywithimg:
+  label: Entity mit Bild
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_entitywithimg
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    img:
+      label: Bild
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe
+content_withoutimg:
+  label: Entity ohne Bild
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_withoutimg
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    lifedata:
+      label: Lebensdaten
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe

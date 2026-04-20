@@ -47,3 +47,32 @@
         padding-bottom: $spacing-s;
     }
 }
+
+.main-wrapper__container{
+    grid-template-areas: "content content content content content content content content content content content content";
+&.main-wrapper__container--sidebar{
+    grid-template-areas: "content content content content content content content content sidebar sidebar sidebar";
+}
+    .content{
+        grid-area: content;
+    }
+    .sidebar--content{
+        grid-area: sidebar;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        grid-template-areas: "line content content";
+        .region{
+            grid-area: content;
+        }
+        &::before{
+            content: "";
+            display: block;
+            grid-area: line;
+            width: 1px;
+            background-color: black;
+            height: 100%;
+            justify-self: center;
+        }
+    }
+}
