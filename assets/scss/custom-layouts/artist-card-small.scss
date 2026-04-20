@@ -1,0 +1,15 @@
+.layout--artist-card-small {
+    @extend .layout--artist-card;
+
+    .card--small {
+        .card__content {
+            padding: 0.5rem;
+        }
+
+        .card__name,
+        .card__name * {
+            @include text-meta;
+            @include font-text-bold;
+        }
+    }
+}

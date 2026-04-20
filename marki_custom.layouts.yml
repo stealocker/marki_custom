@@ -122,7 +122,7 @@ content_object-preview:
     objects:
       label: Objekte
 content_object-card:
-  label: MarKI Objektcard
+  label: Objektcard
   category: MarKI Custom Cards
   template: templates/custom-layouts/layout_object-card
   regions:
@@ -168,3 +168,82 @@ content_withoutimg:
       label: Daten
     datagroup:
       label: Datengruppe
+content_mz-card:
+  label: Markencard
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_mz-card
+  regions:
+    img:
+      label: Bild
+    type:
+      label: Markentyp
+    internnumber:
+      label: MarKI Nummer
+    artist:
+      label: zugehöriger Künstler
+content_bz-card:
+  label: Beschauzeichencard
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_bz-card
+  regions:
+    img:
+      label: Bild
+    type:
+      label: Markentyp
+    internnumber:
+      label: MarKI Nummer
+    beznumber:
+      label: Beschauzeichennummer
+content_artist-card:
+  label: Künstler:innencard
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_artist-card
+  regions:
+    name:
+      label: Name
+content_object-card-small:
+  label: Objektcard klein
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_object-card-small
+  regions:
+    img:
+      label: Bild
+    objnumber:
+      label: Objektnummer
+    title:
+      label: Titel
+    artist:
+      label: Künstler:in
+content_mz-card-small:
+  label: Markencard klein
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_mz-card-small
+  regions:
+    img:
+      label: Bild
+    type:
+      label: Markentyp
+    internnumber:
+      label: MarKI Nummer
+    artist:
+      label: zugehöriger Künstler
+content_bz-card-small:
+  label: Beschauzeichencard klein
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_bz-card-small
+  regions:
+    img:
+      label: Bild
+    type:
+      label: Markentyp
+    internnumber:
+      label: MarKI Nummer
+    beznumber:
+      label: Beschauzeichennummer
+content_artist-card-small:
+  label: Künstler:innencard klein
+  category: MarKI Custom Cards
+  template: templates/custom-layouts/layout_artist-card-small
+  regions:
+    name:
+      label: Name

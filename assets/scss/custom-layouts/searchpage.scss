@@ -71,3 +71,56 @@
         }
     }
 }
+
+.search__help{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding-bottom: 4rem;
+    &::after{
+        content: "";
+        //responsive nachjustieren!! 
+        @include content-container-width-correction-half(calc(((100% - 2rem) / 3)));
+        left: calc(((100% - 2rem) / -3));
+        position:absolute;
+        bottom: 0;
+        height: 1px;
+        background-color: black;
+    }
+    .search__help__icon{
+        align-self: center;
+    }
+}
+
+.block-facets{
+    padding-top: 4rem;
+    .block__title{
+        @include text-h6;
+        @include font-text-bold;
+        color: black;
+    }
+    .block__content{
+        ul{
+            list-style-type: none;
+            margin-block-start: 0;
+            padding: 0;
+        }
+        li{
+            display: grid;
+            grid-template-columns: 1em auto;
+            gap: 1rem;
+            cursor: pointer;
+            *{
+                cursor: pointer;
+            }
+            input[type="checkbox"]{
+                width: 1em;
+                height: 1em;
+                margin-top: 0.1em;
+            }
+            .form-check-label{
+                margin: 0;
+            }
+        }
+    }
+}

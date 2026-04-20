@@ -1,0 +1,38 @@
+.layout--object-card-small {
+    @extend .layout--object-card;
+
+    .card--small {
+        .card__image {
+            aspect-ratio: 4 / 3;
+        }
+
+        .card__content {
+            padding: 0.5rem;
+
+            &--number {
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+        }
+
+        .card__objnumber,
+        .card__objnumber * {
+            @include text-meta;
+            @include font-text-bold;
+        }
+
+        .card__title,
+        .card__title * {
+            color: $color-blue-dark;
+            @include font-text-bold;
+            font-size: 0.9rem;
+        }
+
+        .card__artist,
+        .card__artist * {
+            @include text-meta;
+            @include font-text-bold;
+            margin-top: 0.25rem !important;
+        }
+    }
+}

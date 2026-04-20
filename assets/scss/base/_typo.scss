@@ -40,36 +40,42 @@ h1,
 .h1 {
     @include font-text-bold;
     @include text-h1;
+    color: black;
 }
 
 h2,
 .h2 {
     @include font-text-bold;
     @include text-h2;
+    color: black;
 }
 
 h3,
 .h3 {
     @include font-text-bold;
     @include text-h3;
+    color: black;
 }
 
 h4,
 .h4 {
     @include font-text-bold;
     @include text-h4;
+    color: black;
 }
 
 h5,
 .h5 {
     @include font-text-bold;
     @include text-h5;
+    color: black;
 }
 
 h6,
 .h6 {
     @include font-text-bold;
     @include text-h6;
+    color: black;
 }
 
 

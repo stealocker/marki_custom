@@ -1,0 +1,34 @@
+.layout--bz-card-small {
+    @extend .layout--bz-card;
+
+    .card--small {
+        .card__image {
+            aspect-ratio: 4 / 3;
+        }
+
+        .card__content {
+            padding: 0.5rem;
+
+            &--type {
+                border-bottom: 1px solid black;
+            }
+
+            &--number {
+                border-bottom: 1px solid black;
+            }
+        }
+
+        .card__internnumber,
+        .card__internnumber * {
+            @include text-meta;
+            @include font-text-bold;
+        }
+
+        .card__beznumber,
+        .card__beznumber * {
+            @include text-meta;
+            @include font-text-bold;
+            margin-top: 0.25rem !important;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.layout--bz-card {
+    background: #fff;
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {}
+
+}
+
+.card {
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 17 / 20;
+        overflow: hidden;
+
+        * {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        padding: 1rem;
+
+        &--type {
+            border-bottom: 1px solid black;
+        }
+
+        &--number {
+            border-bottom: 1px solid black;
+        }
+
+        * {
+            margin: 0 !important;
+        }
+    }
+
+    &__internnumber,
+    &__internnumber * {
+        @include text-meta;
+        @include font-text-bold;
+    }
+
+    &__beznumber,
+    &__beznumber * {
+        @include text-meta;
+        @include font-text-bold;
+        margin-top: 0.5rem !important;
+    }
+}

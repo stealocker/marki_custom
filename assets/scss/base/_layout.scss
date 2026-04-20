@@ -4,6 +4,7 @@
 
 .site-main {
     overflow-x: hidden;
+
     &.no-overflow {
         overflow: unset;
     }
@@ -20,12 +21,15 @@
     max-width: $max-container-width-xl;
     margin: 0 auto;
     padding: 0 $spacing-l;
+
     @media screen and (max-width: $breakpoint-l-width) {
         padding: 0 $spacing-m;
     }
+
     @media screen and (max-width: $breakpoint-m-width) {
         padding: 0 $spacing-s;
     }
+
     @media screen and (max-width: $breakpoint-s-width) {
         padding: 0 $spacing-mobile;
     }
@@ -34,38 +38,48 @@
 .top-bottom-container {
     padding-top: $spacing-m;
     padding-bottom: $spacing-l;
+
     @media screen and (max-width: $breakpoint-l-width) {
         padding-top: $spacing-l;
         padding-bottom: $spacing-l;
     }
+
     @media screen and (max-width: $breakpoint-m-width) {
         padding-top: $spacing-m;
         padding-bottom: $spacing-m;
     }
+
     @media screen and (max-width: $breakpoint-s-width) {
         padding-top: $spacing-s;
         padding-bottom: $spacing-s;
     }
 }
 
-.main-wrapper__container{
+.main-wrapper__container {
     grid-template-areas: "content content content content content content content content content content content content";
-&.main-wrapper__container--sidebar{
-    grid-template-areas: "content content content content content content content content sidebar sidebar sidebar";
-}
-    .content{
-        grid-area: content;
+
+    &.main-wrapper__container--sidebar {
+        grid-template-areas: "content content content content content content content content content sidebar sidebar sidebar";
     }
-    .sidebar--content{
+
+    .content {
+        grid-area: content;
+        padding-top: 4rem;
+    }
+
+    .sidebar--content {
         grid-area: sidebar;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         grid-template-areas: "line content content";
-        .region{
+
+        .region {
             grid-area: content;
+            padding-top: 4rem;
         }
-        &::before{
+
+        &::before {
             content: "";
             display: block;
             grid-area: line;

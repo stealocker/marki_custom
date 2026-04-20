@@ -232,10 +232,11 @@ img.avatar {
   grid-template-areas: "content content content content content content content content content content content content";
 }
 .main-wrapper__container.main-wrapper__container--sidebar {
-  grid-template-areas: "content content content content content content content content sidebar sidebar sidebar";
+  grid-template-areas: "content content content content content content content content content sidebar sidebar sidebar";
 }
 .main-wrapper__container .content {
   grid-area: content;
+  padding-top: 4rem;
 }
 .main-wrapper__container .sidebar--content {
   grid-area: sidebar;
@@ -246,6 +247,7 @@ img.avatar {
 }
 .main-wrapper__container .sidebar--content .region {
   grid-area: content;
+  padding-top: 4rem;
 }
 .main-wrapper__container .sidebar--content::before {
   content: "";
@@ -311,6 +313,7 @@ h1,
   font-size: 4rem;
   margin-top: 0;
   margin-bottom: 0.28em;
+  color: black;
 }
 
 h2,
@@ -321,6 +324,7 @@ h2,
   font-size: 3rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
+  color: black;
 }
 
 h3,
@@ -331,6 +335,7 @@ h3,
   font-size: 2.6rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
+  color: black;
 }
 
 h4,
@@ -341,6 +346,7 @@ h4,
   font-size: 2.2rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
+  color: black;
 }
 
 h5,
@@ -351,6 +357,7 @@ h5,
   font-size: 2rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
+  color: black;
 }
 
 h6,
@@ -361,6 +368,7 @@ h6,
   font-size: 1.8rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
+  color: black;
 }
 
 ol,
@@ -1689,7 +1697,7 @@ h1.contactpage__title {
   }
 }
 
-.layout--object-card {
+.layout--object-card, .layout--object-card-small {
   background: #fff;
   border: 1px solid black;
   overflow: hidden;
@@ -1739,7 +1747,7 @@ h1.contactpage__title {
   margin-top: 0.5rem !important;
 }
 
-.layout--object-preview .layout--object-card {
+.layout--object-preview .layout--object-card, .layout--object-preview .layout--object-card-small {
   border: none;
 }
 
@@ -1817,6 +1825,305 @@ h1.contactpage__title {
 }
 .search__form form .button--camera img {
   height: 4rem;
+}
+
+.search__help {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+.search__help::after {
+  content: "";
+  width: calc(100% + 50px + (100% - 2rem) / 3);
+}
+@media screen and (max-width: 1200px) {
+  .search__help::after {
+    width: calc(100% + 30px + (100% - 2rem) / 3);
+  }
+}
+@media screen and (max-width: 768px) {
+  .search__help::after {
+    width: calc(100% + 21px + (100% - 2rem) / 3);
+  }
+}
+@media screen and (max-width: 375px) {
+  .search__help::after {
+    width: calc(100% + 16px + (100% - 2rem) / 3);
+  }
+}
+.search__help::after {
+  left: calc((100% - 2rem) / -3);
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: black;
+}
+.search__help .search__help__icon {
+  align-self: center;
+}
+
+.block-facets {
+  padding-top: 4rem;
+}
+.block-facets .block__title {
+  font-size: 1.8rem;
+  margin-top: 1.85em;
+  margin-bottom: 0.7em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: black;
+}
+.block-facets .block__content ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  padding: 0;
+}
+.block-facets .block__content li {
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 1rem;
+  cursor: pointer;
+}
+.block-facets .block__content li * {
+  cursor: pointer;
+}
+.block-facets .block__content li input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.1em;
+}
+.block-facets .block__content li .form-check-label {
+  margin: 0;
+}
+
+.layout--mz-card, .layout--mz-card-small {
+  background: #fff;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+.card__image {
+  width: 100%;
+  aspect-ratio: 17/20;
+  overflow: hidden;
+}
+.card__image * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__content {
+  padding: 1rem;
+}
+.card__content--type {
+  border-bottom: 1px solid black;
+}
+.card__content--number {
+  border-bottom: 1px solid black;
+}
+.card__content * {
+  margin: 0 !important;
+}
+.card__internnumber, .card__internnumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.card__artist, .card__artist * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 0.5rem !important;
+}
+
+.layout--bz-card, .layout--bz-card-small {
+  background: #fff;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+.card__image {
+  width: 100%;
+  aspect-ratio: 17/20;
+  overflow: hidden;
+}
+.card__image * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__content {
+  padding: 1rem;
+}
+.card__content--type {
+  border-bottom: 1px solid black;
+}
+.card__content--number {
+  border-bottom: 1px solid black;
+}
+.card__content * {
+  margin: 0 !important;
+}
+.card__internnumber, .card__internnumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.card__beznumber, .card__beznumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 0.5rem !important;
+}
+
+.layout--artist-card, .layout--artist-card-small {
+  background: #fff;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+.card__content {
+  padding: 1rem;
+}
+.card__content * {
+  margin: 0 !important;
+}
+.card__name, .card__name * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.layout--object-card-small .card--small .card__image {
+  aspect-ratio: 4/3;
+}
+.layout--object-card-small .card--small .card__content {
+  padding: 0.5rem;
+}
+.layout--object-card-small .card--small .card__content--number {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.layout--object-card-small .card--small .card__objnumber,
+.layout--object-card-small .card--small .card__objnumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--object-card-small .card--small .card__title,
+.layout--object-card-small .card--small .card__title * {
+  color: #004F99;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 0.9rem;
+}
+.layout--object-card-small .card--small .card__artist,
+.layout--object-card-small .card--small .card__artist * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 0.25rem !important;
+}
+
+.layout--mz-card-small .card--small .card__image {
+  aspect-ratio: 4/3;
+}
+.layout--mz-card-small .card--small .card__content {
+  padding: 0.5rem;
+}
+.layout--mz-card-small .card--small .card__content--type {
+  border-bottom: 1px solid black;
+}
+.layout--mz-card-small .card--small .card__content--number {
+  border-bottom: 1px solid black;
+}
+.layout--mz-card-small .card--small .card__internnumber,
+.layout--mz-card-small .card--small .card__internnumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--mz-card-small .card--small .card__artist,
+.layout--mz-card-small .card--small .card__artist * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 0.25rem !important;
+}
+
+.layout--bz-card-small .card--small .card__image {
+  aspect-ratio: 4/3;
+}
+.layout--bz-card-small .card--small .card__content {
+  padding: 0.5rem;
+}
+.layout--bz-card-small .card--small .card__content--type {
+  border-bottom: 1px solid black;
+}
+.layout--bz-card-small .card--small .card__content--number {
+  border-bottom: 1px solid black;
+}
+.layout--bz-card-small .card--small .card__internnumber,
+.layout--bz-card-small .card--small .card__internnumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--bz-card-small .card--small .card__beznumber,
+.layout--bz-card-small .card--small .card__beznumber * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 0.25rem !important;
+}
+
+.layout--artist-card-small .card--small .card__content {
+  padding: 0.5rem;
+}
+.layout--artist-card-small .card--small .card__name,
+.layout--artist-card-small .card--small .card__name * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
 
 /*# sourceMappingURL=style.css.map */
