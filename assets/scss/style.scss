@@ -14,7 +14,6 @@
 @import 'elements/button';
 @import 'elements/toolbar';
 @import 'elements/breadcrumbs';
-@import 'elements/cards';
 @import 'elements/pager';
 @import 'parts/header';
 @import 'parts/footer';
@@ -28,10 +27,11 @@
 @import 'custom-layouts/accordion';
 @import 'custom-layouts/teammember';
 @import 'custom-layouts/object-preview';
-@import 'custom-layouts/object-card';
 @import 'custom-layouts/entitywithimg';
 @import 'custom-layouts/withoutimg';
 @import 'custom-layouts/searchpage';
+@import 'custom-layouts/cards';
+@import 'custom-layouts/object-card';
 @import 'custom-layouts/mz-card';
 @import 'custom-layouts/bz-card';
 @import 'custom-layouts/artist-card';
@@ -39,3 +39,8 @@
 @import 'custom-layouts/mz-card-small';
 @import 'custom-layouts/bz-card-small';
 @import 'custom-layouts/artist-card-small';
+@import 'custom-layouts/entities';
+@import 'custom-layouts/entityobj';
+@import 'custom-layouts/entitymz';
+@import 'custom-layouts/entitybz';
+@import 'custom-layouts/entityartist';

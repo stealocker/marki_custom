@@ -149,8 +149,6 @@ content_entitywithimg:
       label: Bild
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
 content_withoutimg:
   label: Entity ohne Bild
   category: MarKI Custom Pages
@@ -166,8 +164,6 @@ content_withoutimg:
       label: Lebensdaten
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
 content_mz-card:
   label: Markencard
   category: MarKI Custom Cards
@@ -247,3 +243,71 @@ content_artist-card-small:
   regions:
     name:
       label: Name
+content_entityobj:
+  label: Objekt Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_entityobj
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    img:
+      label: Bild
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe
+content_entitymz:
+  label: MZ Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_entitymz
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    img:
+      label: Bild
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe
+content_entitybz:
+  label: BZ Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_entitybz
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    img:
+      label: Bild
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe
+content_entityartist:
+  label: Künstler:in Seite
+  category: MarKI Custom Pages
+  template: templates/custom-layouts/layout_entityartist
+  regions:
+    entity_name:
+      label: Entity Name
+    title:
+      label: Titel
+    document_identifier:
+      label: Document Identifier
+    life:
+      label: Lebensdaten
+    data:
+      label: Daten
+    datagroup:
+      label: Datengruppe

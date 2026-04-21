@@ -11,7 +11,9 @@ Items for the breadcrumb region. * - page.social: Items for the social region. *
     {% include '@marki_custom/header.html.twig' %}
     <div id="main-wrapper" class="main-wrapper theme-content-container top-container">
         {% if page.page_header %}
-            {{ page.page_header }}
+            <div class="header-wrapper--search search-header--inactive">
+                {{ page.page_header }}
+            </div>
         {% endif %}
 
         <div class="main-wrapper--body">

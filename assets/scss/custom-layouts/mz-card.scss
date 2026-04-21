@@ -1,53 +1,27 @@
 .layout--mz-card {
-    background: #fff;
-    border: 1px solid black;
-    overflow: hidden;
-    position: relative;
+    .card {
 
-    &:hover {}
-
-}
-
-.card {
-
-    &__image {
-        width: 100%;
-        aspect-ratio: 17 / 20;
-        overflow: hidden;
-
-        * {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        &__content--type,
+        &__content--type * {
+            @include text-meta;
+            @include font-text-bold;
         }
-    }
 
-    &__content {
-        padding: 1rem;
+        &__content--number,
+        &__content--number * {
+            @include text-meta;
+            @include font-text-bold;
+        }
 
-        &--type {
+        &__content--type,
+        &__content--number {
             border-bottom: 1px solid black;
         }
 
-        &--number {
-            border-bottom: 1px solid black;
+        &__artist,
+        &__artist * {
+            @include font-text-bold;
+            color: $color-lilac-dark;
         }
-
-        * {
-            margin: 0 !important;
-        }
-    }
-
-    &__internnumber,
-    &__internnumber * {
-        @include text-meta;
-        @include font-text-bold;
-    }
-
-    &__artist,
-    &__artist * {
-        @include text-meta;
-        @include font-text-bold;
-        margin-top: 0.5rem !important;
     }
 }

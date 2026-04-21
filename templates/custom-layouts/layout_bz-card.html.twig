@@ -1,9 +1,13 @@
 <div class="layout--bz-card card">
+    <div class="card__content card__content--type">
+        {% if content.type %}
+            {{ content.type }}
+        {% else %}
+            <p>Beschauzeichen</p>
+        {% endif %}
+    </div>
     <div class="card__image">
         {{ content.img }}
-    </div>
-    <div class="card__content card__content--type">
-        {{ content.type }}
     </div>
     <div class="card__content card__content--number">
         <div class="card__internnumber">{{ content.internnumber }}</div>

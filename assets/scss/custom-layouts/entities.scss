@@ -1,0 +1,34 @@
+.layout--entity {
+    grid-template-columns: 5fr 1px 6fr;
+    gap: 0;
+
+    .entity {
+        &__divider {
+            height: 100%;
+            background-color: black;
+            width: 1px;
+        }
+
+        &__left {
+            .entity {
+                &__header {}
+
+                &__entity-name {}
+
+                &__title {}
+
+                &__document-identifier {}
+
+                &__img {}
+            }
+        }
+
+        &__right {
+            .entity {
+                &__data {}
+
+                &__datagroup {}
+            }
+        }
+    }
+}

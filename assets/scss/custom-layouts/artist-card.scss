@@ -1,26 +1,9 @@
 .layout--artist-card {
-    background: #fff;
-    border: 1px solid black;
-    overflow: hidden;
-    position: relative;
-
-    &:hover {}
-
-}
-
 .card {
-
-    &__content {
-        padding: 1rem;
-
-        * {
-            margin: 0 !important;
+        &__name,
+        &__name * {
+            @include font-text-bold;
+            color: $color-green-dark;
         }
-    }
-
-    &__name,
-    &__name * {
-        @include text-meta;
-        @include font-text-bold;
     }
 }

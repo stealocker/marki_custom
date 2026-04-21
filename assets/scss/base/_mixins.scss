@@ -232,3 +232,21 @@
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
 }
+
+@mixin content-container(){
+        max-width: $max-container-width-xl;
+    margin: 0 auto;
+    padding: 0 $spacing-l;
+
+    @media screen and (max-width: $breakpoint-l-width) {
+        padding: 0 $spacing-m;
+    }
+
+    @media screen and (max-width: $breakpoint-m-width) {
+        padding: 0 $spacing-s;
+    }
+
+    @media screen and (max-width: $breakpoint-s-width) {
+        padding: 0 $spacing-mobile;
+    }
+}

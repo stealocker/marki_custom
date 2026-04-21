@@ -15,7 +15,7 @@ regions:
   header_primary_menu: 'Hauptmenü'
   header_gnmlink: 'GNM Link'
   header_legallinks: 'Legal Links'
-  page_header: 'Page Header'
+  page_header: 'Page Header Suche'
   sidebar: 'Sidebar'
   content: 'Content'
   footer_logo_marki: 'Footer Logo'

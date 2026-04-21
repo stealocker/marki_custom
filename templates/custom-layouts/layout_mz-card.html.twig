@@ -1,14 +1,19 @@
 <div class="layout--mz-card card">
-    <div class="card__image">
-        {{ content.img }}
-    </div>
     <div class="card__content card__content--type">
         {{ content.type }}
+    </div>
+    <div class="card__image">
+        {{ content.img }}
     </div>
     <div class="card__content card__content--number">
         <div class="card__internnumber">{{ content.internnumber }}</div>
     </div>
     <div class="card__content card__content--artist">
-        <div class="card__artist">{{ content.artist }}</div>
+            {% if content.artist %}
+                    <div class="card__artist">{{ content.artist }}</div>
+        {% else %}
+            <p>Künstler:in ungeklärt</p>
+        {% endif %}
+
     </div>
 </div>

@@ -1,57 +1,24 @@
 .layout--object-card {
-    background: #fff;
-    border: 1px solid black;
-    overflow: hidden;
-    position: relative;
+    .card {
 
-    &:hover {}
-
-}
-
-.card {
-
-    &__image {
-        width: 100%;
-        aspect-ratio: 17 / 20;
-        overflow: hidden;
-
-        * {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    &__content {
-        padding: 1rem;
-
-        &--number {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
+        &__objnumber,
+        &__objnumber * {
+            @include text-meta;
+            @include font-text-bold;
         }
 
-        * {
-            margin: 0 !important;
+        &__title,
+        &__title * {
+            color: $color-blue-dark;
+            @include font-text-bold;
         }
-    }
 
-    &__objnumber,
-    &__objnumber * {
-        @include text-meta;
-        @include font-text-bold;
-    }
-
-    &__title,
-    &__title * {
-        color: $color-blue-dark;
-        @include font-text-bold;
-    }
-
-    &__artist,
-    &__artist * {
-        @include text-meta;
-        @include font-text-bold;
-        margin-top: 0.5rem !important;
+        &__artist,
+        &__artist * {
+            @include text-meta;
+            @include font-text-bold;
+            margin-top: 0.5rem !important;
+        }
     }
 }
 

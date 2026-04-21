@@ -168,6 +168,10 @@ img.avatar {
   padding: 0;
 }
 
+.views-view-grid__item {
+  position: relative;
+}
+
 #page.site {
   width: 100vw;
 }
@@ -469,6 +473,15 @@ a {
   transition: none !important;
 }
 
+.link--overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
 *,
 div,
 :after,
@@ -704,17 +717,6 @@ button:hover, .button--primary:hover {
 }
 .breadcrumb .breadcrumb__item:nth-child(n+2):before {
   border-color: red !important;
-}
-
-.view--archivalien-suche .views-row {
-  background-color: #FFFFFF;
-  padding: 26px 38px 22px 24px;
-  margin-bottom: 30px;
-  border-left: 4px solid #e3001b;
-  transition: border-left 0.1s linear;
-}
-.view--archivalien-suche .views-row:hover {
-  border-left: 4px solid #fff;
 }
 
 .pager {
@@ -1697,60 +1699,6 @@ h1.contactpage__title {
   }
 }
 
-.layout--object-card, .layout--object-card-small {
-  background: #fff;
-  border: 1px solid black;
-  overflow: hidden;
-  position: relative;
-}
-.card__image {
-  width: 100%;
-  aspect-ratio: 17/20;
-  overflow: hidden;
-}
-.card__image * {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card__content {
-  padding: 1rem;
-}
-.card__content--number {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
-.card__content * {
-  margin: 0 !important;
-}
-.card__objnumber, .card__objnumber * {
-  font-size: 1.25rem;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-}
-.card__title, .card__title * {
-  color: #004F99;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-}
-.card__artist, .card__artist * {
-  font-size: 1.25rem;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  margin-top: 0.5rem !important;
-}
-
-.layout--object-preview .layout--object-card, .layout--object-preview .layout--object-card-small {
-  border: none;
-}
-
 .layout--entitywithimg {
   position: relative;
 }
@@ -1898,7 +1846,50 @@ h1.contactpage__title {
   margin: 0;
 }
 
-.layout--mz-card, .layout--mz-card-small {
+.header-wrapper--search {
+  position: relative;
+}
+.header-wrapper--search #block-marki-custom-markisearchform {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content {
+  background-color: white;
+  position: relative;
+  z-index: 3;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+@media screen and (max-width: 1200px) {
+  .header-wrapper--search #block-marki-custom-markisearchform .block__content {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-wrapper--search #block-marki-custom-markisearchform .block__content {
+    padding: 0 21px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .header-wrapper--search #block-marki-custom-markisearchform .block__content {
+    padding: 0 16px;
+  }
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content {
+  border-bottom: 1px solid black;
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content::before {
+  content: "🞫";
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: end;
+  padding: 2rem;
+}
+
+.card {
   background: #fff;
   border: 1px solid black;
   overflow: hidden;
@@ -1917,16 +1908,15 @@ h1.contactpage__title {
 .card__content {
   padding: 1rem;
 }
-.card__content--type {
-  border-bottom: 1px solid black;
-}
 .card__content--number {
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
-.card__content * {
+.card * {
   margin: 0 !important;
 }
-.card__internnumber, .card__internnumber * {
+
+.layout--object-card .card__objnumber, .layout--object-card-small .card__objnumber, .layout--object-card .card__objnumber *, .layout--object-card-small .card__objnumber * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -1934,7 +1924,13 @@ h1.contactpage__title {
   font-weight: bold;
   font-style: normal;
 }
-.card__artist, .card__artist * {
+.layout--object-card .card__title, .layout--object-card-small .card__title, .layout--object-card .card__title *, .layout--object-card-small .card__title * {
+  color: #004F99;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--object-card .card__artist, .layout--object-card-small .card__artist, .layout--object-card .card__artist *, .layout--object-card-small .card__artist * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -1944,71 +1940,67 @@ h1.contactpage__title {
   margin-top: 0.5rem !important;
 }
 
-.layout--bz-card, .layout--bz-card-small {
-  background: #fff;
-  border: 1px solid black;
-  overflow: hidden;
-  position: relative;
-}
-.card__image {
-  width: 100%;
-  aspect-ratio: 17/20;
-  overflow: hidden;
-}
-.card__image * {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card__content {
-  padding: 1rem;
-}
-.card__content--type {
-  border-bottom: 1px solid black;
-}
-.card__content--number {
-  border-bottom: 1px solid black;
-}
-.card__content * {
-  margin: 0 !important;
-}
-.card__internnumber, .card__internnumber * {
-  font-size: 1.25rem;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-}
-.card__beznumber, .card__beznumber * {
-  font-size: 1.25rem;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  margin-top: 0.5rem !important;
+.layout--object-preview .layout--object-card, .layout--object-preview .layout--object-card-small {
+  border: none;
 }
 
-.layout--artist-card, .layout--artist-card-small {
-  background: #fff;
-  border: 1px solid black;
-  overflow: hidden;
-  position: relative;
-}
-.card__content {
-  padding: 1rem;
-}
-.card__content * {
-  margin: 0 !important;
-}
-.card__name, .card__name * {
+.layout--mz-card .card__content--type, .layout--mz-card-small .card__content--type, .layout--mz-card .card__content--type *, .layout--mz-card-small .card__content--type * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
   font-family: ">>FONT NAME<<", Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
+}
+.layout--mz-card .card__content--number, .layout--mz-card-small .card__content--number, .layout--mz-card .card__content--number *, .layout--mz-card-small .card__content--number * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--mz-card .card__content--type, .layout--mz-card-small .card__content--type, .layout--mz-card .card__content--number, .layout--mz-card-small .card__content--number {
+  border-bottom: 1px solid black;
+}
+.layout--mz-card .card__artist, .layout--mz-card-small .card__artist, .layout--mz-card .card__artist *, .layout--mz-card-small .card__artist * {
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #3D31C9;
+}
+
+.layout--bz-card .card__content--type, .layout--bz-card-small .card__content--type, .layout--bz-card .card__content--type *, .layout--bz-card-small .card__content--type * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--bz-card .card__content--number, .layout--bz-card-small .card__content--number, .layout--bz-card .card__content--number *, .layout--bz-card-small .card__content--number * {
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.layout--bz-card .card__content--type, .layout--bz-card-small .card__content--type, .layout--bz-card .card__content--number, .layout--bz-card-small .card__content--number {
+  border-bottom: 1px solid black;
+}
+.layout--bz-card .card__content--beznumber, .layout--bz-card-small .card__content--beznumber, .layout--bz-card .card__content--beznumber *, .layout--bz-card-small .card__content--beznumber * {
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #3D31C9;
+}
+
+.layout--artist-card .card__name, .layout--artist-card-small .card__name, .layout--artist-card .card__name *, .layout--artist-card-small .card__name * {
+  font-family: ">>FONT NAME<<", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #345912;
 }
 
 .layout--object-card-small .card--small .card__image {
@@ -2124,6 +2116,31 @@ h1.contactpage__title {
   font-family: ">>FONT NAME<<", Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
+}
+
+.layout--entity {
+  grid-template-columns: 5fr 1px 6fr;
+  gap: 0;
+}
+.layout--entity .entity__divider {
+  height: 100%;
+  background-color: black;
+  width: 1px;
+}
+.layout--entityobj .entity__title {
+  color: #004F99;
+}
+
+.layout--entitymz .entity__title {
+  color: #3D31C9;
+}
+
+.layout--entitybz .entity__title {
+  color: #3D31C9;
+}
+
+.layout--entityartist .entity__title {
+  color: #345912;
 }
 
 /*# sourceMappingURL=style.css.map */
