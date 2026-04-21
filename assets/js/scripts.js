@@ -160,8 +160,9 @@
                     textInput.placeholder = 'Suchbegriff hier eingeben';
                 }
 
-                const actionsDiv = viewsForm.querySelector('#edit-actions');
+                const actionsDiv = viewsForm.querySelector('#edit-actions--2');
                 if (actionsDiv) {
+
                     const input = actionsDiv.querySelector('input[type="submit"]');
                     if (input && !input.classList.contains('button--search')) {
                         input.classList.add('button--search');

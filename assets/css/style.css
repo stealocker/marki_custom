@@ -1889,6 +1889,10 @@ h1.contactpage__title {
   padding: 2rem;
 }
 
+.search-header--inactive .marki-search-form {
+  display: none;
+}
+
 .card {
   background: #fff;
   border: 1px solid black;
