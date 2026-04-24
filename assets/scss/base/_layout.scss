@@ -64,6 +64,7 @@
 
     .content {
         grid-area: content;
+        //when making changes, also change translateY of entities->.layout--entity
         padding-top: 4rem;
     }
 

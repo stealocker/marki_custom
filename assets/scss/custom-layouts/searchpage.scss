@@ -58,6 +58,11 @@
             justify-self: end;
             padding: 0 4rem;
             padding-top: 1rem;
+            &:hover{
+                color: black;
+                border: none;
+                background-color: $color-lilac-pale;
+            }
         }
 
         .button--camera {

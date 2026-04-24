@@ -258,8 +258,16 @@ content_entityobj:
       label: Bild
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
+    history:
+      label: Objektgeschichte
+    characteristics:
+      label: Merkmale
+    sources:
+      label: Quellen
+    literature:
+      label: Literatur
+    moreinformation:
+      label: Weitere Informationen
 content_entitymz:
   label: MZ Seite
   category: MarKI Custom Pages
@@ -275,8 +283,12 @@ content_entitymz:
       label: Bild
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
+    sources:
+      label: Quellen
+    literature:
+      label: Literatur
+    moreinformation:
+      label: Weitere Informationen
 content_entitybz:
   label: BZ Seite
   category: MarKI Custom Pages
@@ -292,8 +304,8 @@ content_entitybz:
       label: Bild
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
+    moreinformation:
+      label: Weitere Informationen
 content_entityartist:
   label: Künstler:in Seite
   category: MarKI Custom Pages
@@ -306,8 +318,14 @@ content_entityartist:
     document_identifier:
       label: Document Identifier
     life:
-      label: Lebensdaten
+      label: Biographische Daten
     data:
       label: Daten
-    datagroup:
-      label: Datengruppe
+    jobs:
+      label: Tätigkeiten
+    workshop_continuedby:
+      label: Fortsetzung der Werkstatt
+    literature:
+      label: Literatur
+    moreinformation:
+      label: Weitere Informationen

@@ -66,6 +66,16 @@
         }
     };
 
+    Drupal.behaviors.imageSearchToggle = {
+
+        attach: function (context, settings) {
+
+            once('imageSearchToggle', '.button--camera--searchpage', context).forEach(function (buttonCamera) {
+                
+            });
+        }
+    };
+
     Drupal.behaviors.rearrangeContactPage = {
         attach: function (context, settings) {
             once('rearrangeContactPage', '.layout--contactpage', context).forEach(function (section) {
@@ -172,7 +182,7 @@
                     if (!existingCameraButton) {
                         const cameraButton = document.createElement('button');
                         cameraButton.type = 'button';
-                        cameraButton.className = 'button--camera';
+                        cameraButton.className = 'button--camera button--camera--searchpage';
 
                         const cameraIcon = document.createElement('img');
                         cameraIcon.src = drupalSettings.marki_custom.theme_path + '/assets/img/camera.svg';
