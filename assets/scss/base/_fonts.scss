@@ -1,6 +1,15 @@
-/* @font-face {
-    font-family: ">>FONT NAME<<";
-    src: url("../fonts/>>FONT NAME<<.woff2") format("woff2"), url("../fonts/>>FONT NAME<<.woff") format("woff");
-    font-weight: normal;
+@font-face {
+    font-family: 'Corporate S';
+    src: url('../fonts/corporate-s-regular.ttf') format('truetype');
+    font-weight: 400;
     font-style: normal;
-} */
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Corporate S';
+    src: url('../fonts/corporate-s-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

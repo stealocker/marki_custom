@@ -12,7 +12,6 @@
             // Only <button> triggers: same class on <a> (e.g. projects page-title link) must navigate.
 
             once('menuToggle', 'html', context).forEach(function () {
-                console.log('menuToggle behavior attached');
 
                 const siteNavigation = document.getElementById('site-header');
 

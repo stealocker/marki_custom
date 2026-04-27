@@ -69,12 +69,20 @@
     flex: 0 1 auto;
   }
 }
-/* @font-face {
-    font-family: ">>FONT NAME<<";
-    src: url("../fonts/>>FONT NAME<<.woff2") format("woff2"), url("../fonts/>>FONT NAME<<.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-} */
+@font-face {
+  font-family: "Corporate S";
+  src: url("../fonts/corporate-s-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Corporate S";
+  src: url("../fonts/corporate-s-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 .invisible,
 .hidden {
   display: none !important;
@@ -277,8 +285,8 @@ li,
 td,
 address,
 a {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   font-size: 1.8rem;
   margin-top: 1em;
@@ -301,8 +309,8 @@ label,
 input,
 textarea,
 select {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 1.8rem;
   margin-top: 1em;
@@ -311,8 +319,8 @@ select {
 
 h1,
 .h1 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 4rem;
   margin-top: 0;
@@ -322,8 +330,8 @@ h1,
 
 h2,
 .h2 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 3rem;
   margin-top: 1.85em;
@@ -333,8 +341,8 @@ h2,
 
 h3,
 .h3 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 2.6rem;
   margin-top: 1.85em;
@@ -344,8 +352,8 @@ h3,
 
 h4,
 .h4 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 2.2rem;
   margin-top: 1.85em;
@@ -355,8 +363,8 @@ h4,
 
 h5,
 .h5 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 2rem;
   margin-top: 1.85em;
@@ -366,8 +374,8 @@ h5,
 
 h6,
 .h6 {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 1.8rem;
   margin-top: 1.85em;
@@ -404,8 +412,8 @@ ul {
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "TT Travels", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -414,8 +422,8 @@ ul {
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "TT Travels", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -424,20 +432,20 @@ ul {
   line-height: 1;
   margin-top: 0.7em;
   margin-bottom: 0.7em;
-  font-family: "TT Travels", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
 .font-regular {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
 .font-text-bold {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -480,6 +488,7 @@ a {
   left: 0;
   right: 0;
   z-index: 2;
+  margin: 0;
 }
 
 *,
@@ -666,7 +675,9 @@ body.menu-open {
   }
 }
 .btn,
-button, .button--primary {
+button,
+.button--primary,
+.button {
   border: none;
   background-color: #EEEDF9;
   color: #000000;
@@ -689,13 +700,19 @@ button, .button--primary {
 }
 .btn:disabled, .btn[disabled],
 button:disabled,
-button[disabled], .button--primary:disabled, .button--primary[disabled] {
+button[disabled],
+.button--primary:disabled,
+.button--primary[disabled],
+.button:disabled,
+.button[disabled] {
   opacity: 0.5;
 }
 .btn:hover,
-button:hover, .button--primary:hover {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+button:hover,
+.button--primary:hover,
+.button:hover {
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -732,8 +749,8 @@ button:hover, .button--primary:hover {
 .pager .pager__items .pager__item .pager__link:hover {
   background-color: transparent !important;
   color: #000000;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -825,8 +842,8 @@ button:hover, .button--primary:hover {
   font-size: 2.2rem;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: black;
   margin: 0;
@@ -870,8 +887,8 @@ button:hover, .button--primary:hover {
   font-size: 2.2rem;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: #004F99 !important;
   margin: 0;
@@ -930,8 +947,8 @@ footer .footer__container .footer__container__inner .menu .menu__item {
   padding: 0;
 }
 footer .footer__container .footer__container__inner .menu .menu__item .menu__link {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   text-decoration: underline;
   color: black;
@@ -1032,8 +1049,8 @@ footer .footer__container .footer__container__inner--logo-funding, footer .foote
   padding-bottom: 6rem !important;
 }
 footer .footer__container .footer__container__inner--logo-funding p, footer .footer__container .footer__container__inner--logo-gnm p {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-bottom: 1rem;
 }
@@ -1081,8 +1098,8 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   font-size: 2.2rem;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   height: 100%;
   margin: 0;
@@ -1228,8 +1245,8 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
 }
 .layout--aboutus-teaser .aboutus-teaser__wrapper .teaser-txt h2, .layout--aboutus-teaser .aboutus-teaser__wrapper .teaser-txt h2 * {
   grid-area: headline;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 3rem;
   margin-top: 1.85em;
@@ -1239,8 +1256,8 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   display: block;
   text-align: right;
@@ -1413,8 +1430,8 @@ h1.contactpage__title {
   /* LABELS */
 }
 .layout--contactpage .contactpage__form label {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 1.25rem;
   margin-top: 1em;
@@ -1429,8 +1446,8 @@ h1.contactpage__title {
   font-size: 1.8rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   border: none;
   outline: none;
@@ -1503,8 +1520,8 @@ h1.contactpage__title {
   font-size: 1.8rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   border: none;
   background-color: #EEEDF9;
@@ -1545,8 +1562,8 @@ h1.contactpage__title {
   padding-top: 4rem;
 }
 .layout--contactpage .contactpage__content .contactpage__address-wrapper .contactpage__address-title {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -1579,8 +1596,8 @@ h1.contactpage__title {
   grid-area: title;
 }
 .accordion-item__header .accordion-item__title * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 2.6rem;
   margin-top: 1.85em;
@@ -1632,8 +1649,8 @@ h1.contactpage__title {
   margin: 0;
 }
 .layout--teammember .team-member__name * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 2rem;
   margin-top: 1.85em;
@@ -1729,8 +1746,8 @@ h1.contactpage__title {
   font-size: 2.2rem;
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   height: 100%;
   margin: 0;
@@ -1823,8 +1840,8 @@ h1.contactpage__title {
   font-size: 1.8rem;
   margin-top: 1.85em;
   margin-bottom: 0.7em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: black;
 }
@@ -1885,13 +1902,39 @@ h1.contactpage__title {
 .header-wrapper--search #block-marki-custom-markisearchform .block__content {
   border-bottom: 1px solid black;
 }
-.header-wrapper--search #block-marki-custom-markisearchform .block__content::before {
-  content: "🞫";
-  width: 100%;
-  height: 4rem;
+.header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  grid-template-areas: "form form form form form form form form form form space button";
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__actions {
   display: flex;
+  width: 100%;
   justify-content: end;
-  padding: 2rem;
+  align-items: start;
+  grid-area: button;
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__actions button {
+  margin: 0;
+  aspect-ratio: 1/1;
+  font-size: 3.2rem;
+  padding: 4rem;
+  line-height: 1;
+  background-color: white;
+  font-weight: 300;
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__form {
+  grid-area: form;
+}
+.header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__form input.form-file {
+  width: 100%;
+  border: 2px dashed #A09BE7;
+  height: 15rem;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
 }
 
 .search-header--inactive .marki-search-form {
@@ -1929,22 +1972,22 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--object-card .card__title, .layout--object-card-small .card__title, .layout--object-card .card__title *, .layout--object-card-small .card__title * {
   color: #004F99;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--object-card .card__artist, .layout--object-card-small .card__artist, .layout--object-card .card__artist *, .layout--object-card-small .card__artist * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-top: 0.5rem !important;
 }
@@ -1957,24 +2000,24 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--mz-card .card__content--number, .layout--mz-card-small .card__content--number, .layout--mz-card .card__content--number *, .layout--mz-card-small .card__content--number * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--mz-card .card__content--type, .layout--mz-card-small .card__content--type, .layout--mz-card .card__content--number, .layout--mz-card-small .card__content--number {
   border-bottom: 1px solid black;
 }
 .layout--mz-card .card__artist, .layout--mz-card-small .card__artist, .layout--mz-card .card__artist *, .layout--mz-card-small .card__artist * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: #3D31C9;
 }
@@ -1983,31 +2026,31 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--bz-card .card__content--number, .layout--bz-card-small .card__content--number, .layout--bz-card .card__content--number *, .layout--bz-card-small .card__content--number * {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--bz-card .card__content--type, .layout--bz-card-small .card__content--type, .layout--bz-card .card__content--number, .layout--bz-card-small .card__content--number {
   border-bottom: 1px solid black;
 }
 .layout--bz-card .card__content--beznumber, .layout--bz-card-small .card__content--beznumber, .layout--bz-card .card__content--beznumber *, .layout--bz-card-small .card__content--beznumber * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: #3D31C9;
 }
 
 .layout--artist-card .card__name, .layout--artist-card-small .card__name, .layout--artist-card .card__name *, .layout--artist-card-small .card__name * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: #345912;
 }
@@ -2027,15 +2070,15 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--object-card-small .card--small .card__title,
 .layout--object-card-small .card--small .card__title * {
   color: #004F99;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 0.9rem;
 }
@@ -2044,8 +2087,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-top: 0.25rem !important;
 }
@@ -2067,8 +2110,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--mz-card-small .card--small .card__artist,
@@ -2076,8 +2119,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-top: 0.25rem !important;
 }
@@ -2099,8 +2142,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--bz-card-small .card--small .card__beznumber,
@@ -2108,8 +2151,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-top: 0.25rem !important;
 }
@@ -2122,8 +2165,8 @@ h1.contactpage__title {
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -2188,8 +2231,8 @@ h1.contactpage__title {
   background-color: black;
 }
 .layout--entity .entity__left .entity__entity-name * {
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin-bottom: 1rem;
 }
@@ -2197,8 +2240,8 @@ h1.contactpage__title {
   font-size: 4rem;
   margin-top: 0;
   margin-bottom: 0.28em;
-  font-family: ">>FONT NAME<<", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 .layout--entity .entity__right {

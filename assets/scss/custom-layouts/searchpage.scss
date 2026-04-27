@@ -24,10 +24,11 @@
             margin: 0;
         }
 
-        div.form-item{
+        div.form-item {
             grid-area: input;
             height: 100%;
         }
+
         input.form-text {
             width: 100%;
             border: none;
@@ -58,7 +59,8 @@
             justify-self: end;
             padding: 0 4rem;
             padding-top: 1rem;
-            &:hover{
+
+            &:hover {
                 color: black;
                 border: none;
                 background-color: $color-lilac-pale;
@@ -77,85 +79,120 @@
     }
 }
 
-.search__help{
+.search__help {
     display: flex;
     flex-wrap: nowrap;
     gap: 2rem;
     padding-bottom: 4rem;
-    &::after{
+
+    &::after {
         content: "";
         //responsive nachjustieren!! 
         @include content-container-width-correction-half(calc(((100% - 2rem) / 3)));
         left: calc(((100% - 2rem) / -3));
-        position:absolute;
+        position: absolute;
         bottom: 0;
         height: 1px;
         background-color: black;
     }
-    .search__help__icon{
+
+    .search__help__icon {
         align-self: center;
     }
 }
 
-.block-facets{
+.block-facets {
     padding-top: 4rem;
-    .block__title{
+
+    .block__title {
         @include text-h6;
         @include font-text-bold;
         color: black;
     }
-    .block__content{
-        ul{
+
+    .block__content {
+        ul {
             list-style-type: none;
             margin-block-start: 0;
             padding: 0;
         }
-        li{
+
+        li {
             display: grid;
             grid-template-columns: 1em auto;
             gap: 1rem;
             cursor: pointer;
-            *{
+
+            * {
                 cursor: pointer;
             }
-            input[type="checkbox"]{
+
+            input[type="checkbox"] {
                 width: 1em;
                 height: 1em;
                 margin-top: 0.1em;
             }
-            .form-check-label{
+
+            .form-check-label {
                 margin: 0;
             }
         }
     }
 }
 
-.header-wrapper--search{
+.header-wrapper--search {
     position: relative;
-    #block-marki-custom-markisearchform{
+
+    #block-marki-custom-markisearchform {
         width: 100%;
         position: absolute;
         top: 0;
-        .block__content{
+
+        .block__content {
             background-color: white;
             position: relative;
             z-index: 3;
-        @include content-container;
-        border-bottom: 1px solid black;
-        &::before{
-            content: "🞫";
-            width: 100%;
-            height: 4rem;
-            display: flex;
-            justify-content: end;
-            padding: 2rem;
-        }
+            @include content-container;
+            border-bottom: 1px solid black;
+
+            .marki-search-form-wrapper {
+                @include grid;
+                grid-template-areas: "form form form form form form form form form form space button";
+               &__actions{
+                display: flex;
+                width: 100%;
+                justify-content: end;
+                align-items: start;
+                grid-area: button;
+                button{
+                    margin: 0;
+                    aspect-ratio: 1 / 1;
+                    font-size: 3.2rem;
+                    padding: 4rem;
+                    line-height: 1;
+                    background-color: white;
+                    font-weight: 300;
+                }
+               }
+                &__form{
+                    grid-area: form;
+                input.form-file{
+                    width: 100%;
+                    border: 2px dashed $color-lilac;
+                    height: 15rem;
+                    display: flex;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+                }
+               }
+            }
         }
     }
 }
 
-.search-header--inactive{
-    .marki-search-form{
-         display: none;
+.search-header--inactive {
+    .marki-search-form {
+        display: none;
     }
 }
