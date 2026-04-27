@@ -66,12 +66,99 @@
         }
     };
 
-    Drupal.behaviors.imageSearchToggle = {
+    Drupal.behaviors.setSearchUrlParamFromHome = {
 
         attach: function (context, settings) {
 
-            once('imageSearchToggle', '.button--camera--searchpage', context).forEach(function (buttonCamera) {
-                
+            once('setSearchUrlParamFromHome', '#block-marki-custom-sucheinstieghome', context).forEach(function (sucheinstieghome) {
+                const searchinput = sucheinstieghome.querySelector('input');
+                const searchbutton = sucheinstieghome.querySelector('.button--search');
+                const camerabutton = sucheinstieghome.querySelector('.button--camera');
+
+                // SEARCHBUTTON
+                function addSearchStringToUrl() {
+                    var params = new URLSearchParams({ rendered_item: searchinput.value.trim() });
+                    var searchUrl = 'https://marki.gnm.de/search/all?' + params.toString();
+                    window.location.href = searchUrl;
+                }
+
+                searchbutton.addEventListener('click', function () {
+                    addSearchStringToUrl();
+                });
+
+                searchbutton.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                        e.preventDefault();
+                        addSearchStringToUrl();
+                    }
+                });
+
+                // CAMERABUTTON
+                function addCameraStringToUrl() {
+                    var searchUrl = 'https://marki.gnm.de/search' + '?searchmethod=' + 'img';
+                    window.location.href = searchUrl;
+                }
+
+                camerabutton.addEventListener('click', function () {
+                    addCameraStringToUrl();
+                });
+
+                camerabutton.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                        e.preventDefault();
+                        addCameraStringToUrl();
+                    }
+                });
+
+            });
+        }
+    };
+
+    Drupal.behaviors.rearrangeViewsForm = {
+        attach: function (context, settings) {
+            once('rearrangeViewsForm', '.views-exposed-form', context).forEach(function (viewsForm) {
+                const targetContainer = context.querySelector('.region--page-header .block__content');
+                if (!targetContainer) {
+                    return;
+                }
+
+                if (targetContainer.querySelector('.search__form .views-exposed-form')) {
+                    return;
+                }
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'search__form content-container';
+
+                const textInput = viewsForm.querySelector('.form-text');
+                if (textInput) {
+                    textInput.placeholder = 'Suchbegriff hier eingeben';
+                }
+
+                const actionsDiv = viewsForm.querySelector('#edit-actions--2');
+                if (actionsDiv) {
+
+                    const input = actionsDiv.querySelector('input[type="submit"]');
+                    if (input && !input.classList.contains('button--search')) {
+                        input.classList.add('button--search');
+                    }
+
+                    const existingCameraButton = viewsForm.querySelector('.button--camera');
+                    if (!existingCameraButton) {
+                        const cameraButton = document.createElement('button');
+                        cameraButton.type = 'button';
+                        cameraButton.className = 'button--camera button--camera--searchpage';
+
+                        const cameraIcon = document.createElement('img');
+                        cameraIcon.src = drupalSettings.marki_custom.theme_path + '/assets/img/camera.svg';
+                        cameraIcon.alt = 'icon camera';
+
+                        cameraButton.appendChild(cameraIcon);
+                        actionsDiv.parentNode.insertBefore(cameraButton, actionsDiv.nextSibling);
+                    }
+                }
+
+                wrapper.appendChild(viewsForm);
+                targetContainer.appendChild(wrapper);
             });
         }
     };
@@ -150,55 +237,52 @@
         }
     };
 
-    Drupal.behaviors.rearrangeViewsForm = {
+    Drupal.behaviors.toggleImgSearchFromButtonAndUrl = {
+
         attach: function (context, settings) {
-            once('rearrangeViewsForm', '.views-exposed-form', context).forEach(function (viewsForm) {
-                const targetContainer = context.querySelector('.region--page-header .block__content');
-                if (!targetContainer) {
-                    return;
-                }
 
-                if (targetContainer.querySelector('.search__form .views-exposed-form')) {
-                    return;
-                }
+            once('toggleImgSearchFromButtonAndUrl', '.views-exposed-form', context).forEach(function (viewExposedForm) {
+                const params = new URLSearchParams(window.location.search);
+                const paramSearchmethod = params.get('searchmethod');
 
-                const wrapper = document.createElement('div');
-                wrapper.className = 'search__form content-container';
+                const searchHeader = document.querySelector('.header-wrapper--search');
+                const cameraButton = viewExposedForm.querySelector('.button--camera');
+                const fileInput = document.querySelector('#edit-query-image-upload');
 
-                const textInput = viewsForm.querySelector('.form-text');
-                if (textInput) {
-                    textInput.placeholder = 'Suchbegriff hier eingeben';
-                }
 
-                const actionsDiv = viewsForm.querySelector('#edit-actions--2');
-                if (actionsDiv) {
+                function toggleImgSearch(forceClose = false) {
+                    const closeButton = document.querySelector('.button--close-imagesearchform');
+                    const isInactive = searchHeader.classList.contains('search-header--inactive');
+                    const shouldOpen = !forceClose && isInactive;
 
-                    const input = actionsDiv.querySelector('input[type="submit"]');
-                    if (input && !input.classList.contains('button--search')) {
-                        input.classList.add('button--search');
+                    // Toggle visibility
+                    searchHeader.classList.toggle('search-header--inactive', !shouldOpen);
+
+
+                    // Move focus
+                    if (shouldOpen) {
+                        fileInput?.focus();
+                    } else {
+                        cameraButton?.focus(); // return focus to trigger
                     }
 
-                    const existingCameraButton = viewsForm.querySelector('.button--camera');
-                    if (!existingCameraButton) {
-                        const cameraButton = document.createElement('button');
-                        cameraButton.type = 'button';
-                        cameraButton.className = 'button--camera button--camera--searchpage';
+                    // Update trigger button state
+                    cameraButton?.setAttribute('aria-expanded', String(shouldOpen));
+                    cameraButton?.setAttribute('aria-controls', 'block-marki-custom-markisearchform');
 
-                        const cameraIcon = document.createElement('img');
-                        cameraIcon.src = drupalSettings.marki_custom.theme_path + '/assets/img/camera.svg';
-                        cameraIcon.alt = 'icon camera';
-
-                        cameraButton.appendChild(cameraIcon);
-                        actionsDiv.parentNode.insertBefore(cameraButton, actionsDiv.nextSibling);
-                    }
+                    closeButton?.addEventListener('click', () => toggleImgSearch(true));
                 }
 
-                wrapper.appendChild(viewsForm);
-                targetContainer.appendChild(wrapper);
+                // Hook up buttons
+                cameraButton?.addEventListener('click', () => toggleImgSearch());
+
+
+
+                if (paramSearchmethod == 'img') {
+                    toggleImgSearch();
+                }
             });
         }
     };
 
 })(jQuery, Drupal, drupalSettings, once);
-
-

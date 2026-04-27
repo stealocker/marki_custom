@@ -10,6 +10,18 @@
     <div class="entity__divider"></div>
     <div class="entity__right">
         <div class="entity__data">{{ content.data }}</div>
-        <div class="entity__datagroup">{{ content.datagroup }}</div>
+        {% if content.moreinformation %}
+            <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-moreinformation" id="accordion__content-moreinformation">
+                <div class="accordion__content-wrapper grid">
+                    <div class="accordion-item__header">
+                        <div class="accordion-item__title">Weitere Informationen</div>
+                        <button id="accordion__trigger-moreinformation" class="accordion__trigger">
+                            <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                        </button>
+                    </div>
+                    <div class="accordion-item__content">{{ content.moreinformation }}</div>
+                </div>
+            </div>
+    {% endif %}
     </div>
 </section>

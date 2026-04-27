@@ -16,63 +16,65 @@
                     <div class="accordion-item__header">
                         <div class="accordion-item__title">Objektgeschichte</div>
                         <button id="accordion__trigger-history" class="accordion__trigger">
-                            <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
-                        </div>
-                        <div class="accordion-item__content">{{ content.history }}</div>
+                            <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                        </button>
                     </div>
+                    <div class="accordion-item__content">{{ content.history }}</div>
                 </div>
             </div>
-        {% endif %}
-        {% if content.characteristics %}
-            <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-characteristics" id="accordion__content-characteristics">
-                <div class="accordion__content-wrapper grid">
-                    <div class="accordion-item__header">
-                        <div class="accordion-item__title">Merkmale</div>
-                        <button id="accordion__trigger-characteristics" class="accordion__trigger">
-                            <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
-                        </div>
-                        <div class="accordion-item__content">{{ content.characteristics }}</div>
-                    </div>
+    {% endif %}
+    {% if content.characteristics %}
+        <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-characteristics" id="accordion__content-characteristics">
+            <div class="accordion__content-wrapper grid">
+                <div class="accordion-item__header">
+                    <div class="accordion-item__title">Merkmale</div>
+                    <button id="accordion__trigger-characteristics" class="accordion__trigger">
+                        <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                    </button>
                 </div>
-            {% endif %}
-            {% if content.sources %}
-                <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-sources" id="accordion__content-sources">
-                    <div class="accordion__content-wrapper grid">
-                        <div class="accordion-item__header">
-                            <div class="accordion-item__title">Quellen</div>
-                            <button id="accordion__trigger-sources" class="accordion__trigger">
-                                <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
-                            </div>
-                            <div class="accordion-item__content">{{ content.sources }}</div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-            {% if content.literature %}
-                <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-literature" id="accordion__content-literature">
-                    <div class="accordion__content-wrapper grid">
-                        <div class="accordion-item__header">
-                            <div class="accordion-item__title">Literatur</div>
-                            <button id="accordion__trigger-literature" class="accordion__trigger">
-                                <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
-                            </div>
-                            <div class="accordion-item__content">{{ content.literature }}</div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-            {% if content.moreinformation %}
-                <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-moreinformation" id="accordion__content-moreinformation">
-                    <div class="accordion__content-wrapper grid">
-                        <div class="accordion-item__header">
-                            <div class="accordion-item__title">Weitere Informationen</div>
-                            <button id="accordion__trigger-moreinformation" class="accordion__trigger">
-                                <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle"></button>
-                            </div>
-                            <div class="accordion-item__content">{{ content.moreinformation }}</div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
+                <div class="accordion-item__content">{{ content.characteristics }}</div>
+            </div>
         </div>
-    </section>
+    {% endif %}
+    {% if content.sources %}
+        <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-sources" id="accordion__content-sources">
+            <div class="accordion__content-wrapper grid">
+                <div class="accordion-item__header">
+                    <div class="accordion-item__title">Quellen</div>
+                    <button id="accordion__trigger-sources" class="accordion__trigger">
+                        <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                    </button>
+                </div>
+                <div class="accordion-item__content">{{ content.sources }}</div>
+            </div>
+        </div>
+{% endif %}
+{% if content.literature %}
+    <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-literature" id="accordion__content-literature">
+        <div class="accordion__content-wrapper grid">
+            <div class="accordion-item__header">
+                <div class="accordion-item__title">Literatur</div>
+                <button id="accordion__trigger-literature" class="accordion__trigger">
+                    <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                </button>
+            </div>
+            <div class="accordion-item__content">{{ content.literature }}</div>
+        </div>
+    </div>
+{% endif %}
+{% if content.moreinformation %}
+    <div class="accordion-item accordion--closed accordion--small" aria-expanded="false" aria-controls="accordion__trigger-moreinformation" id="accordion__content-moreinformation">
+        <div class="accordion__content-wrapper grid">
+            <div class="accordion-item__header">
+                <div class="accordion-item__title">Weitere Informationen</div>
+                <button id="accordion__trigger-moreinformation" class="accordion__trigger">
+                    <img src="{{ file_url(directory ~ '/assets/img/accordion-plus.svg') }}" alt="icon accordion toggle">
+                </button>
+            </div>
+            <div class="accordion-item__content">{{ content.moreinformation }}</div>
+        </div>
+    </div>
+
+{% endif %}
+</div>
+</section>
