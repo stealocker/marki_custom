@@ -65,12 +65,46 @@
 }
 
 .accordion--closed {
-    .accordion-item__title {
+  .accordion-item__title {
+     text-decoration: none!important;
     * {
       text-decoration: none;
     }
   }
+
   .accordion-item__content {
     display: none;
+  }
+}
+
+.accordion--small {
+    &::after,
+  &::before {
+    @include content-container-width-correction-half;
+  }
+  .accordion__content-wrapper {
+    display: block;
+  }
+  .accordion-item__header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    grid-template-areas: "title title title title title trigger";
+  }
+    .accordion-item__title {
+      @include font-text-bold;
+      @include text-h6;
+      margin: 0;
+      text-decoration: underline;
+      text-underline-offset: 0.1em;
+  }
+
+    .accordion__trigger {
+      justify-self: end;
+    padding: 3rem;
+    width: fit-content;
+    img {
+      width: 2rem;
+    }
   }
 }

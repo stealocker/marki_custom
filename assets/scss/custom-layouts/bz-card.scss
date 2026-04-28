@@ -16,6 +16,9 @@
         &__content--type,
         &__content--number {
             border-bottom: 1px solid black;
+            *{
+                text-decoration: none!important;
+            }
         }
 
         &__content--beznumber,

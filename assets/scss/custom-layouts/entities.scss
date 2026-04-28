@@ -2,6 +2,8 @@
     grid-template-columns: 5fr 1px 6fr;
     gap: 0;
     transform: translateY(-4rem);
+    border-bottom: 1px solid black;
+
     .entity {
         &__divider {
             height: 100%;
@@ -13,10 +15,13 @@
             padding-right: 10rem;
             padding-top: 4rem;
             padding-bottom: 4rem;
-            position: relative;
+            position: sticky;
+            top: 12rem;
+            align-self: start;
+
             .entity {
                 &__header {
-                    &::after{
+                    &::after {
                         content: "";
                         display: block;
                         position: absolute;
@@ -29,14 +34,14 @@
                 }
 
                 &__entity-name {
-                    *{
+                    * {
                         @include font-text-bold;
                         margin-bottom: 1rem;
                     }
                 }
 
                 &__title {
-                    *{
+                    * {
                         @include text-h1;
                         @include font-text-bold;
                     }
@@ -51,8 +56,12 @@
         &__right {
             padding-left: 10rem;
             padding-top: 4rem;
+            position: relative;
+
             .entity {
-                &__data {}
+                &__data {
+                    margin-bottom: 6rem;
+                }
 
                 &__datagroup {}
             }

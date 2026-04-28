@@ -2,13 +2,6 @@
     width: 100vw;
 }
 
-.site-main {
-    overflow-x: hidden;
-
-    &.no-overflow {
-        overflow: unset;
-    }
-}
 
 @media screen and (max-width: $breakpoint-sm-width) {
     body {

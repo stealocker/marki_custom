@@ -10,5 +10,5 @@ function marki_custom_theme_suggestions_alter(array &$suggestions, array $variab
  * Implements hook_preprocess_html().
  */
 function marki_custom_preprocess_html(&$variables) {
-  $variables['#attached']['drupalSettings']['marki_custom']['theme_path'] = \Drupal::service('extension.list.theme')->getPath('marki_custom');
+  $variables['#attached']['drupalSettings']['marki_custom']['theme_path'] = '/' . \Drupal::service('extension.list.theme')->getPath('marki_custom');
 }

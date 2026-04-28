@@ -79,6 +79,19 @@
     }
 }
 
+.view-search {
+    .views-view-grid__item {
+        align-self: stretch;
+
+        .views-view-grid__item-inner,
+        .card,
+        .views-field-rendered-item-card {
+            position: relative;
+            height: 100%;
+        }
+    }
+}
+
 .search__help {
     display: flex;
     flex-wrap: nowrap;
@@ -156,38 +169,177 @@
             border-bottom: 1px solid black;
 
             .marki-search-form-wrapper {
-                @include grid;
-                grid-template-areas: "form form form form form form form form form form space button";
-               &__actions{
-                display: flex;
-                width: 100%;
-                justify-content: end;
-                align-items: start;
-                grid-area: button;
-                button{
-                    margin: 0;
-                    aspect-ratio: 1 / 1;
-                    font-size: 3.2rem;
-                    padding: 4rem;
-                    line-height: 1;
-                    background-color: white;
-                    font-weight: 300;
-                }
-               }
-                &__form{
-                    grid-area: form;
-                input.form-file{
-                    width: 100%;
-                    border: 2px dashed $color-lilac;
-                    height: 15rem;
+                position: relative;
+
+                &__actions {
                     display: flex;
-  align-content: center;
-  justify-items: center;
-  justify-content: center;
+                    width: 100%;
+                    justify-content: end;
+                    align-items: start;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    button {
+                        margin: 0;
+                        aspect-ratio: 1 / 1;
+                        font-size: 3.2rem;
+                        padding: 4rem;
+                        line-height: 1;
+                        background-color: white;
+                        font-weight: 300;
+                    }
                 }
-               }
+
+                &__form {
+
+                    #marki-search-form .mark-search-container {
+                        @include grid;
+                        grid-template-areas: "form form form form form form form form form form space button" "actions actions actions actions actions actions actions actions actions actions actions actions";
+                        padding-top: 4rem;
+
+                        #edit-inner-container {
+                            grid-area: form;
+
+                            .form-item__label {
+                                @include text-meta;
+                            }
+                        }
+                    }
+
+                    input.form-file {
+                        width: 100%;
+                        border: 2px dashed $color-lilac;
+                        height: 15rem;
+                        display: flex;
+                        align-content: center;
+                        justify-items: center;
+                        justify-content: center;
+                    }
+
+                    .js-form-type-number {
+                        display: flex;
+                        gap: 2rem;
+                        align-items: baseline;
+                        justify-content: end;
+
+                        * {
+                            margin: 0;
+                        }
+
+                        label {
+                            display: block;
+                            height: auto;
+                        }
+                    }
+
+                    .marki-search-form__form-actions {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 2rem;
+                        align-items: center;
+                        position: relative;
+                        grid-area: actions;
+
+                        &::before {
+                            content: "";
+                            height: 1px;
+                            width: 100%;
+                            background-color: black;
+                            @include content-container-position-correction-left;
+                            position: absolute;
+                            top: 0;
+                            @include content-container-width-correction-whole;
+                        }
+
+                        #submit-mark-search-button {
+                            @include text-bigger;
+                            @include font-text-regular;
+                            padding: 4rem;
+                            margin: 0;
+                            height: 100%;
+                        }
+
+                        .js-form-type-checkbox {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+
+                            label {
+                                @include font-text-bold;
+                                @include text-regular;
+                                display: flex;
+                                align-content: baseline;
+                                gap: 0.3em;
+
+                                a {
+                                    display: inline;
+                                    margin: 0;
+                                    @include font-text-bold;
+                                }
+                            }
+                        }
+                    }
+
+                    // OBACHT PFUSCH!!!
+                    #edit-query-image--description {
+                        transform: translateY(-4rem);
+                        padding: 0 1.3rem;
+                        max-width: unset;
+                    }
+                }
             }
         }
+    }
+}
+
+#marki-crop-modal {
+    &>div {
+        border-radius: 0;
+        border: 1px solid black;
+
+        &>div:last-child {
+            position: relative;
+            &::before {
+                content: "";
+                height: 1px;
+                width: 100%;
+                background-color: black;
+                position: absolute;
+                top: 0;
+            }
+
+            margin-top: 1px solid black;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+
+    .cropper-view-box {
+        outline: none;
+    }
+
+    .cropper-line {
+        background-color: $color-green;
+        opacity: 1;
+
+        &.line-e,
+        &.line-w {
+            width: 2px;
+        }
+
+        &.line-n,
+        &.line-s {
+            height: 2px;
+        }
+    }
+
+    .cropper-point {
+        background-color: $color-lilac;
+        width: 8px;
+        height: 8px;
+        opacity: 1;
     }
 }
 

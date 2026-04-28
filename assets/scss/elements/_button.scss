@@ -22,5 +22,8 @@ button,
 
   &:hover {
     @include font-text-bold;
+    color: black;
+    border: none;
+    background-color: $color-lilac-pale;
   }
 }
