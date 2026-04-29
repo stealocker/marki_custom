@@ -1703,14 +1703,15 @@ h1.contactpage__title {
   margin-top: 2rem;
 }
 
-.layout--object-preview {
+.layout--object-preview, .layout--object-preview .views-element-container {
   margin-bottom: 10rem;
   overflow-x: auto;
-}
-.layout--object-preview .object-list {
   position: relative;
 }
-.layout--object-preview .object-list > .field__items {
+.layout--object-preview .object-list, .layout--object-preview .view, .layout--object-preview .views-element-container .object-list, .layout--object-preview .views-element-container .view {
+  position: relative;
+}
+.layout--object-preview .object-list .view-content, .layout--object-preview .view .view-content, .layout--object-preview .views-element-container .object-list .view-content, .layout--object-preview .views-element-container .view .view-content {
   display: flex;
   flex-wrap: nowrap;
   gap: 2rem;
@@ -1719,15 +1720,33 @@ h1.contactpage__title {
   width: 100%;
   position: relative;
   align-items: stretch;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 50px;
 }
-.layout--object-preview .object-list > .field__items::-webkit-scrollbar {
+@media screen and (max-width: 1200px) {
+  .layout--object-preview .object-list .view-content, .layout--object-preview .view .view-content, .layout--object-preview .views-element-container .object-list .view-content, .layout--object-preview .views-element-container .view .view-content {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .layout--object-preview .object-list .view-content, .layout--object-preview .view .view-content, .layout--object-preview .views-element-container .object-list .view-content, .layout--object-preview .views-element-container .view .view-content {
+    padding: 0 21px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .layout--object-preview .object-list .view-content, .layout--object-preview .view .view-content, .layout--object-preview .views-element-container .object-list .view-content, .layout--object-preview .views-element-container .view .view-content {
+    padding: 0 16px;
+  }
+}
+.layout--object-preview .object-list .view-content::-webkit-scrollbar, .layout--object-preview .view .view-content::-webkit-scrollbar, .layout--object-preview .views-element-container .object-list .view-content::-webkit-scrollbar, .layout--object-preview .views-element-container .view .view-content::-webkit-scrollbar {
   height: 8px;
 }
-.layout--object-preview .object-list > .field__items::-webkit-scrollbar-thumb {
+.layout--object-preview .object-list .view-content::-webkit-scrollbar-thumb, .layout--object-preview .view .view-content::-webkit-scrollbar-thumb, .layout--object-preview .views-element-container .object-list .view-content::-webkit-scrollbar-thumb, .layout--object-preview .views-element-container .view .view-content::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
-.layout--object-preview .object-list > .field__items::after {
+.layout--object-preview .object-list .view-content::after, .layout--object-preview .view .view-content::after, .layout--object-preview .views-element-container .object-list .view-content::after, .layout--object-preview .views-element-container .view .view-content::after {
   content: "";
   display: block;
   position: relative;
@@ -1736,27 +1755,28 @@ h1.contactpage__title {
   min-width: 50px;
 }
 @media screen and (max-width: 1200px) {
-  .layout--object-preview .object-list > .field__items::after {
+  .layout--object-preview .object-list .view-content::after, .layout--object-preview .view .view-content::after, .layout--object-preview .views-element-container .object-list .view-content::after, .layout--object-preview .views-element-container .view .view-content::after {
     min-width: 30px;
   }
 }
 @media screen and (max-width: 768px) {
-  .layout--object-preview .object-list > .field__items::after {
+  .layout--object-preview .object-list .view-content::after, .layout--object-preview .view .view-content::after, .layout--object-preview .views-element-container .object-list .view-content::after, .layout--object-preview .views-element-container .view .view-content::after {
     min-width: 21px;
   }
 }
 @media screen and (max-width: 375px) {
-  .layout--object-preview .object-list > .field__items::after {
+  .layout--object-preview .object-list .view-content::after, .layout--object-preview .view .view-content::after, .layout--object-preview .views-element-container .object-list .view-content::after, .layout--object-preview .views-element-container .view .view-content::after {
     min-width: 16px;
   }
 }
-.layout--object-preview .object-list > .field__items > .field__item {
+.layout--object-preview .object-list .view-content .views-row, .layout--object-preview .view .view-content .views-row, .layout--object-preview .views-element-container .object-list .view-content .views-row, .layout--object-preview .views-element-container .view .view-content .views-row {
   width: 25%;
   flex: 0 0 auto;
   border: 1px solid black;
+  position: relative;
 }
 @media (min-width: 768px) {
-  .layout--object-preview .object-list {
+  .layout--object-preview .object-list, .layout--object-preview .view, .layout--object-preview .views-element-container .object-list, .layout--object-preview .views-element-container .view {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
@@ -2170,6 +2190,25 @@ h1.contactpage__title {
   opacity: 1;
 }
 
+.searched-img-wrapper {
+  margin-bottom: 6rem;
+  width: 20rem;
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  z-index: 12;
+}
+.searched-img-wrapper--draggable {
+  z-index: 13;
+}
+.searched-img-wrapper p {
+  margin: 0;
+  font-family: "Corporate S", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 .search-header--inactive .marki-search-form {
   display: none;
 }

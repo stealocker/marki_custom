@@ -311,7 +311,7 @@
                 top: 0;
             }
 
-            margin-top: 0!important;
+            margin-top: 0 !important;
             position: relative;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -374,6 +374,28 @@
         height: 8px;
         opacity: 1;
     }
+}
+
+.searched-img-wrapper {
+    margin-bottom: 6rem;
+    width: 20rem;
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid black;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    position: fixed;
+    z-index: 12;
+
+    &--draggable{
+        z-index: 13;
+    }
+
+    p {
+        margin: 0;
+        @include font-text-bold;
+    }
+
+    img {}
 }
 
 .search-header--inactive {

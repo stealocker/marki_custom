@@ -110,6 +110,13 @@
                     }
                 });
 
+                // OBACHT PFUSCH!!
+                searchinput.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        searchbutton.click();
+                    }
+                });
+
             });
         }
     };
@@ -243,7 +250,7 @@
                 var overlayLink = document.createElement('a');
                 overlayLink.classList.add('link--overlay');
                 overlayLink.innerHTML = "";
-                overlayLink.href="https://marki.gnm.de/how-to-marki";
+                overlayLink.href = "https://marki.gnm.de/how-to-marki";
 
                 searchHelp.insertBefore(overlayLink, searchHelp.children[0]);
             });
@@ -261,7 +268,6 @@
                 const searchHeader = document.querySelector('.header-wrapper--search');
                 const cameraButton = viewExposedForm.querySelector('.button--camera');
                 const fileInput = document.querySelector('#edit-query-image-upload');
-
 
                 function toggleImgSearch(forceClose = false) {
                     const closeButton = document.querySelector('.button--close-imagesearchform');
@@ -283,12 +289,17 @@
                     cameraButton?.setAttribute('aria-expanded', String(shouldOpen));
                     cameraButton?.setAttribute('aria-controls', 'block-marki-custom-markisearchform');
 
-                    closeButton?.addEventListener('click', () => toggleImgSearch(true));
+                    setTimeout(() => {
+                        closeButton?.addEventListener('click', () => toggleImgSearch(true));
+                    }, 300);
                 }
 
                 // Hook up buttons
                 cameraButton?.addEventListener('click', () => toggleImgSearch());
-
+                setTimeout(() => {
+                    const closeButton = document.querySelector('.button--close-imagesearchform');
+                    closeButton?.addEventListener('click', () => toggleImgSearch(true));
+                }, 300);
 
 
                 if (paramSearchmethod == 'img') {
@@ -297,5 +308,114 @@
             });
         }
     };
+
+    Drupal.behaviors.addUploadedImageToSearch = {
+
+        attach: function (context, settings) {
+
+            once('addUploadedImageToSearch', 'html', context).forEach(function (html) {
+                const url = new URL(window.location.href);
+                const imagePath = url.searchParams.get('fs');
+
+                const domain = 'https://marki.gnm.de';
+                const cleanPath = imagePath.replace('/opt/drupal/web', '');
+
+
+                const bodyWrapper = html.querySelector('.main-wrapper--body .content--aside-content');
+                if (bodyWrapper && imagePath) {
+                    var imageWrapper = document.createElement('div');
+                    var imageDraggableWrapper = document.createElement('div');
+                    var img = document.createElement('img');
+                    var imgdescription = document.createElement('p');
+
+                    var spacer = document.createElement('div');
+                    spacer.classList.add('searched-img-spacer');
+
+                    imageWrapper.classList.add('searched-img-wrapper');
+                    imageDraggableWrapper.classList.add('searched-img-wrapper--draggable');
+                    imgdescription.innerHTML = 'Ihr Bild';
+
+                    img.src = domain + cleanPath;
+                    imageWrapper.appendChild(imageDraggableWrapper);
+                    imageDraggableWrapper.appendChild(imgdescription);
+                    imageDraggableWrapper.appendChild(img);
+
+                    bodyWrapper.insertBefore(imageWrapper, bodyWrapper.firstChild);
+
+                    // Measure AFTER it's in the DOM
+                    img.onload = () => {
+                        const height = imageDraggableWrapper.getBoundingClientRect().height + 80;
+                        spacer.style.height = `${height}px`;
+                        bodyWrapper.insertBefore(spacer, imageWrapper.nextSibling);
+                    };
+                }
+            });
+        }
+    };
+
+    Drupal.behaviors.makeSearchedImgDraggable = {
+
+        attach: function (context, settings) {
+
+            once('makeSearchedImgDraggable', '.searched-img-wrapper', context).forEach(function (searchedImgWrapper) {
+                // Make the DIV element draggable:
+                dragElement(searchedImgWrapper);
+
+                function dragElement(elmnt) {
+                    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                    if (elmnt.querySelector('searched-img-wrapper--draggable')) {
+                        // if present, the header is where you move the DIV from:
+                        elmnt.querySelector('searched-img-wrapper--draggable').onmousedown = dragMouseDown;
+                    } else {
+                        // otherwise, move the DIV from anywhere inside the DIV:
+                        elmnt.onmousedown = dragMouseDown;
+                    }
+
+                    function dragMouseDown(e) {
+                        e = e || window.event;
+                        e.preventDefault();
+                        // get the mouse cursor position at startup:
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        document.onmouseup = closeDragElement;
+                        // call a function whenever the cursor moves:
+                        document.onmousemove = elementDrag;
+                    }
+
+                    function elementDrag(e) {
+                        e = e || window.event;
+                        e.preventDefault();
+
+                        pos1 = pos3 - e.clientX;
+                        pos2 = pos4 - e.clientY;
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+
+                        // Use getBoundingClientRect for fixed positioning
+                        const rect = elmnt.getBoundingClientRect();
+                        elmnt.style.top = (rect.top - pos2) + "px";
+                        elmnt.style.left = (rect.left - pos1) + "px";
+                    }
+
+                    function closeDragElement() {
+                        // stop moving when mouse button is released:
+                        document.onmouseup = null;
+                        document.onmousemove = null;
+                    }
+                }
+            });
+        }
+    };
+
+    Drupal.behaviors.hideEmptyAccordions = {
+    attach: function (context, settings) {
+        once('hideEmptyAccordions', '.accordion-item', context).forEach(function (accordionItem) {
+            const content = accordionItem.querySelector('.accordion-item__content');
+            if (content && content.innerHTML.trim() === '') {
+                accordionItem.style.display = 'none';
+            }
+        });
+    }
+};
 
 })(jQuery, Drupal, drupalSettings, once);

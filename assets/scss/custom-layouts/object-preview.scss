@@ -1,11 +1,11 @@
-.layout--object-preview {
+.layout--object-preview, .layout--object-preview .views-element-container {
     margin-bottom: 10rem;
     overflow-x: auto;
-
-    .object-list {
+    position: relative;
+    .object-list, .view {
         position: relative;
 
-        &>.field__items {
+        .view-content {
             display: flex;
             flex-wrap: nowrap;
             gap: 2rem;
@@ -14,6 +14,7 @@
             width: 100%;
             position: relative;
             align-items: stretch;
+            @include content-container;
 
             &::-webkit-scrollbar {
                 height: 8px;
@@ -45,10 +46,11 @@
                 }
             }
 
-            &>.field__item {
+            .views-row {
                 width: 25%;
                 flex: 0 0 auto;
                 border: 1px solid black;
+                position: relative;
             }
         }
 

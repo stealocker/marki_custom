@@ -12,3 +12,15 @@ function marki_custom_theme_suggestions_alter(array &$suggestions, array $variab
 function marki_custom_preprocess_html(&$variables) {
   $variables['#attached']['drupalSettings']['marki_custom']['theme_path'] = '/' . \Drupal::service('extension.list.theme')->getPath('marki_custom');
 }
+
+/**
+ * connects the obj preview for home view/contentlist (don't ask....)
+ */
+function marki_custom_views_pre_argument(&$view, &$args) {
+    if ($view->id() === '3039') {
+        $node = \Drupal\node\Entity\Node::load(42); // your curated list NID
+        $referenced = $node->get('field_objectselection')->getValue();
+        $nids = array_column($referenced, 'target_id');
+        $args = [implode('+', $nids)]; // Solr uses + as OR separator
+    }
+}
