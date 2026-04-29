@@ -295,11 +295,13 @@
 
 #marki-crop-modal {
     &>div {
-        border-radius: 0;
+        border-radius: 0 !important;
         border: 1px solid black;
+        padding: 0 !important;
+
+        &>div:first-child {}
 
         &>div:last-child {
-            position: relative;
             &::before {
                 content: "";
                 height: 1px;
@@ -309,9 +311,40 @@
                 top: 0;
             }
 
-            margin-top: 1px solid black;
+            margin-top: 0!important;
+            position: relative;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            grid-template-areas: "cancel confirm";
+            justify-content: center;
+            align-items: center;
+
+            #marki-crop-confirm,
+            #marki-crop-cancel {
+                padding: 2rem;
+                height: 100%;
+                width: 100%;
+            }
+
+            #marki-crop-confirm {
+                grid-area: confirm;
+            }
+
+            #marki-crop-cancel {
+                grid-area: cancel;
+                background-color: transparent !important;
+                text-decoration: underline !important;
+
+                &::after {
+                    content: "";
+                    height: 100%;
+                    width: 1px;
+                    background-color: black;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                }
+            }
         }
 
     }

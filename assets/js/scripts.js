@@ -237,6 +237,19 @@
         }
     };
 
+    Drupal.behaviors.addLinkToSearchHelp = {
+        attach: function (context, settings) {
+            once('addLinkToSearchHelp', '.search__help', context).forEach(function (searchHelp) {
+                var overlayLink = document.createElement('a');
+                overlayLink.classList.add('link--overlay');
+                overlayLink.innerHTML = "";
+                overlayLink.href="https://marki.gnm.de/how-to-marki";
+
+                searchHelp.insertBefore(overlayLink, searchHelp.children[0]);
+            });
+        }
+    };
+
     Drupal.behaviors.toggleImgSearchFromButtonAndUrl = {
 
         attach: function (context, settings) {

@@ -2106,11 +2106,9 @@ h1.contactpage__title {
 }
 
 #marki-crop-modal > div {
-  border-radius: 0;
+  border-radius: 0 !important;
   border: 1px solid black;
-}
-#marki-crop-modal > div > div:last-child {
-  position: relative;
+  padding: 0 !important;
 }
 #marki-crop-modal > div > div:last-child::before {
   content: "";
@@ -2121,9 +2119,36 @@ h1.contactpage__title {
   top: 0;
 }
 #marki-crop-modal > div > div:last-child {
-  margin-top: 1px solid black;
+  margin-top: 0 !important;
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "cancel confirm";
+  justify-content: center;
+  align-items: center;
+}
+#marki-crop-modal > div > div:last-child #marki-crop-confirm,
+#marki-crop-modal > div > div:last-child #marki-crop-cancel {
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+}
+#marki-crop-modal > div > div:last-child #marki-crop-confirm {
+  grid-area: confirm;
+}
+#marki-crop-modal > div > div:last-child #marki-crop-cancel {
+  grid-area: cancel;
+  background-color: transparent !important;
+  text-decoration: underline !important;
+}
+#marki-crop-modal > div > div:last-child #marki-crop-cancel::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 50%;
 }
 #marki-crop-modal .cropper-view-box {
   outline: none;
