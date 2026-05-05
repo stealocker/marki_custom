@@ -32,6 +32,10 @@
                 .site-branding__logo {
                     margin: 0;
                     padding: 0;
+
+                    img {
+                        max-height: 5rem;
+                    }
                 }
             }
         }
@@ -42,6 +46,8 @@
             #menu-toggle {
                 width: 3rem;
                 height: 3rem;
+                min-width: 36px;
+                min-height: 36px;
                 padding: 5px;
                 z-index: 999;
                 background-color: white;
@@ -141,7 +147,7 @@
                     left: 50%;
                 }
 
-                .block{
+                .block {
                     margin: 0;
                     padding: 0;
                 }
@@ -149,7 +155,7 @@
                 a {
                     @include text-bigger;
                     @include font-text-bold;
-                    color: $color-blue-dark!important;
+                    color: $color-blue-dark !important;
                     margin: 0;
                     border: none;
                     background: none;
@@ -187,6 +193,68 @@
 
                 a {
                     @include text-bigger;
+                }
+            }
+        }
+    }
+}
+
+// Tablet down
+
+@media screen and (max-width: $breakpoint-l-width) {
+    #site-header {
+        max-height: 100vh;
+        .site-header__container {
+            grid-template-columns: 30% auto 45px;
+        }
+
+        .navigation-overlay {
+            height: 100%;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+    }
+}
+
+// Mobile down
+
+@media screen and (max-width: $breakpoint-m-width) {
+    #site-header {
+        .navigation-overlay {
+            #site-navigation {
+                grid-template-areas: "search search search search search search search search search search search search" "main main main main main main main main main main main main" "gnm gnm gnm gnm gnm gnm gnm gnm gnm gnm gnm gnm" "legal legal legal legal legal legal legal legal legal legal legal legal";
+            }
+
+            &::before {
+                display: none;
+            }
+
+            .header-item {
+                &__searchlink-menu {
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                &__primary-menu {
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        background-color: black;
+                        left: 0;
+                    }
+                }
+
+                &__gnmlink {
+                    grid-area: gnm;
+
+                    &::after {
+                        width: 100%;
+                        left: 0;
+                    }
                 }
             }
         }

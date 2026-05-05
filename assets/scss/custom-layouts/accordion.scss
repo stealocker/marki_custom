@@ -53,6 +53,7 @@
     img {
       width: 3rem;
       aspect-ratio: 1 / 1;
+      min-width: 16px;
     }
   }
 }
@@ -66,7 +67,8 @@
 
 .accordion--closed {
   .accordion-item__title {
-     text-decoration: none!important;
+    text-decoration: none !important;
+
     * {
       text-decoration: none;
     }
@@ -77,34 +79,73 @@
   }
 }
 
+// ACCORDION SMALL
 .accordion--small {
-    &::after,
+
+  &::after,
   &::before {
     @include content-container-width-correction-half;
   }
+
   .accordion__content-wrapper {
     display: block;
   }
+
   .accordion-item__header {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
     grid-template-areas: "title title title title title trigger";
   }
-    .accordion-item__title {
-      @include font-text-bold;
-      @include text-h6;
-      margin: 0;
-      text-decoration: underline;
-      text-underline-offset: 0.1em;
+
+  .accordion-item__title {
+    @include font-text-bold;
+    @include text-h6;
+    margin: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
   }
 
-    .accordion__trigger {
-      justify-self: end;
+  .accordion__trigger {
+    justify-self: end;
     padding: 3rem;
     width: fit-content;
+
     img {
       width: 2rem;
+      min-width: 16px;
+    }
+  }
+}
+
+// Mobile down
+
+@media screen and (max-width: $breakpoint-m-width) {
+
+  .accordion-item__header,
+  .accordion-item__content {
+    grid-column: 1 / span 12;
+  }
+
+  .accordion-item__header {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "title title title title title title title title title space trigger trigger";
+
+    .accordion-item__title {
+      padding: 1.5rem 0;
+    }
+
+    .accordion__trigger {
+      height: 100%;
+    }
+  }
+
+  .accordion--small {
+
+    &::after,
+    &::before {
+      @include content-container-width-correction-whole;
+      @include content-container-position-correction-left;
     }
   }
 }

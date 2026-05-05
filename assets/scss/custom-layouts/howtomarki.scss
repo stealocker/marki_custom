@@ -10,3 +10,14 @@
         margin-bottom: 20rem;
     }
 }
+
+// Mobile down
+@media screen and (max-width: $breakpoint-m-width) {
+    .layout--howtomarki {
+
+    .howtomarki__title {
+    margin-top: 6rem;
+        margin-bottom: 10rem;
+    }
+}
+}

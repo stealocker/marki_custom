@@ -408,14 +408,66 @@
     };
 
     Drupal.behaviors.hideEmptyAccordions = {
-    attach: function (context, settings) {
-        once('hideEmptyAccordions', '.accordion-item', context).forEach(function (accordionItem) {
-            const content = accordionItem.querySelector('.accordion-item__content');
-            if (content && content.innerHTML.trim() === '') {
-                accordionItem.style.display = 'none';
-            }
-        });
-    }
-};
+        attach: function (context, settings) {
+            once('hideEmptyAccordions', '.accordion-item', context).forEach(function (accordionItem) {
+                const content = accordionItem.querySelector('.accordion-item__content');
+                if (content && content.innerHTML.trim() === '') {
+                    accordionItem.style.display = 'none';
+                }
+            });
+        }
+
+    };
+
+    Drupal.behaviors.rearrangeMiradorOnEntityPage = {
+        attach: function (context, settings) {
+            once('rearrangeMiradorOnEntityPage', '.view-entity-content', context).forEach(function (entity) {
+                const viewMirador = entity.querySelector('.views-field-view');
+                const viewContent = entity.querySelector('.views-field-rendered-solr-external-display');
+
+                const miradorContainer = viewContent.querySelector('.entity__img');
+
+                if (viewMirador) {
+                    miradorContainer.appendChild(viewMirador);
+                }
+            });
+        }
+    };
+
+    Drupal.behaviors.sidebarToggle = {
+        attach: function (context, settings) {
+            once('sidebarToggle', '.main-wrapper__container--sidebar', context).forEach(function (container) {
+
+                const sidebar = container.querySelector('.sidebar--content');
+
+                if (!sidebar) return;
+
+                const btn = document.createElement('button');
+                btn.classList.add('sidebar-toggle-btn');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.setAttribute('aria-controls', 'sidebar-content');
+                btn.textContent = Drupal.t('Filter ausklappen');
+
+                sidebar.setAttribute('id', 'sidebar-content');
+                document.body.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    const isOpen = sidebar.classList.toggle('is-open');
+                    btn.classList.toggle('is-active', isOpen);
+                    btn.setAttribute('aria-expanded', String(isOpen));
+                    btn.textContent = isOpen ? Drupal.t('Filter einklappen') : Drupal.t('Filter ausklappen');
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!sidebar.contains(e.target) && !btn.contains(e.target)) {
+                        sidebar.classList.remove('is-open');
+                        btn.classList.remove('is-active');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.textContent = Drupal.t('Show info');
+                    }
+                });
+            });
+        }
+    };
 
 })(jQuery, Drupal, drupalSettings, once);

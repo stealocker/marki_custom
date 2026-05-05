@@ -11,20 +11,23 @@ footer {
         position: relative;
 
         .footer__container__inner {
-            nav{
+            nav {
                 margin: 0;
             }
-            .menu{
+
+            .menu {
                 list-style-type: none;
                 padding: 4rem 0;
                 margin: 0;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 2rem;
-                .menu__item{
+
+                .menu__item {
                     margin: 0;
                     padding: 0;
-                    .menu__link{
+
+                    .menu__link {
                         @include font-text-bold;
                         text-decoration: underline;
                         color: black;
@@ -74,6 +77,7 @@ footer {
             &--logo-gnm {
                 grid-area: gnmlogo;
                 position: relative;
+
                 &::before {
                     content: "";
                     display: block;
@@ -84,7 +88,8 @@ footer {
                     left: 0;
                     top: -6rem;
                 }
-                                &::after {
+
+                &::after {
                     content: "";
                     display: block;
                     // check on big screen additional-width
@@ -99,7 +104,8 @@ footer {
             &--logo-funding {
                 grid-area: funding;
                 position: relative;
-                padding-top: 4rem!important;
+                padding-top: 4rem !important;
+
                 &::after {
                     content: "";
                     display: block;
@@ -119,14 +125,17 @@ footer {
                 gap: 2rem;
                 grid-template-areas: "space content content";
                 padding: 0 4rem;
-                                padding-bottom: 6rem!important;
-                p{
+                padding-bottom: 6rem !important;
+
+                p {
                     @include font-text-bold;
                     margin-bottom: 1rem;
                 }
+
                 img {
                     padding-top: 3rem;
                 }
+
                 .region {
                     grid-area: content;
                 }
@@ -153,6 +162,144 @@ footer {
                     position: absolute;
                     left: -2rem;
                     bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// Tablet down
+
+@media screen and (max-width: $breakpoint-l-width) {
+    footer {
+        .footer__container {
+            grid-template-areas:
+                "markilogo markilogo markilogo text text text text text text text text text"
+                "markilogo markilogo markilogo mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu"
+                "markilogo markilogo markilogo legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu"
+                "gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo funding funding funding funding funding funding";
+
+            .footer__container__inner {
+
+                &--logo-marki {
+                    &::after {
+                        height: calc(100% + 8rem);
+                    }
+                }
+
+                &--logo-gnm {
+                    padding-top: 4rem !important;
+
+                    &::before {
+                        display: none;
+                    }
+
+                    &::after {
+                        width: 1px;
+                        height: calc(100% + 2rem);
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
+                &--logo-funding {
+                    &::after {
+                        height: 1px;
+                        width: 100vw;
+                        left: calc(-50vw - 1rem);
+                        top: 0;
+                    }
+                }
+
+                &--txt,
+                &--nav-main {
+                    &::after {
+                        @include content-container-width-correction-half(2rem);
+                    }
+                }
+
+                &--logo-funding,
+                &--logo-gnm {
+                    grid-template-areas: "content content space";
+
+                    img {
+                        max-width: 160px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile down
+
+@media screen and (max-width: $breakpoint-m-width) {
+    footer {
+        .footer__container {
+            grid-template-areas:
+                "markilogo markilogo markilogo markilogo markilogo markilogo markilogo markilogo markilogo markilogo markilogo markilogo"
+                "text text text text text text text text text text text text"
+                "mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu mainmenu"
+                "legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu legalmenu"
+                "gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo gnmlogo"
+                "funding funding funding funding funding funding funding funding funding funding funding funding";
+
+            .footer__container__inner {
+
+                &--logo-marki,
+                &--logo-gnm,
+                &--txt,
+                &--nav-main,
+                &--logo-funding,
+                &--logo-gnm {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 2rem;
+                    grid-template-areas: "space content content content content content space2";
+                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                    .region {
+                        grid-area: content;
+                        align-content: center;
+                    }
+
+                    &::after {
+                        height: 1px;
+                        width: 100vw;
+                        left: calc(50% - 50vw);
+                    }
+                }
+
+                &--logo-marki {
+                    img {
+                        max-width: 160px;
+                        margin: 0 auto;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: black;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-s-width) {
+    footer {
+        .footer__container {
+            .footer__container__inner {
+                &--logo-marki,
+                &--logo-gnm,
+                &--txt,
+                &--nav-main,
+                &--logo-funding,
+                &--logo-gnm {
+                    grid-template-areas: "content content content content content content content";
                 }
             }
         }

@@ -121,19 +121,23 @@ h1.contactpage__title {
       grid-template-columns: 1fr 200px;
       border-bottom: 1px solid black;
 
-      .form-type-boolean{
+      .form-type-boolean {
         padding: 2rem 0;
         display: grid;
         grid-template-columns: 2rem auto;
         gap: 2rem;
-        label{
+
+        label {
           display: none;
         }
-        input[type="checkbox"]{
+
+        input[type="checkbox"] {
           width: 2rem;
           height: 2rem;
         }
-        .form-item__description, a {
+
+        .form-item__description,
+        a {
           @include text-meta;
           margin: 0;
           line-height: 1.2;
@@ -184,6 +188,91 @@ h1.contactpage__title {
 
       .contactpage__address-title {
         @include font-text-bold;
+      }
+    }
+  }
+}
+
+// Tablet down
+@media screen and (max-width: $breakpoint-l-width) {
+  .layout--contactpage {
+    grid-template-areas: "form form form form form form form space content content content content";
+  }
+}
+
+// Mobile down
+@media screen and (max-width: $breakpoint-m-width) {
+  h1.contactpage__title {
+    margin-top: 6rem;
+  }
+
+  .layout--contactpage {
+    grid-template-areas: "content content content content content content content content content content content content" "form form form form form form form form form form form form";
+
+    &::before {
+      display: none;
+    }
+
+    .contactpage__form {
+      border-right: none;
+      position: relative;
+      margin-top: 4rem;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        @include content-container-position-correction-left;
+        @include content-container-width-correction-whole;
+        background-color: black;
+        top: 0;
+        left: 0;
+      }
+
+      form {
+
+        &>.form-item,
+        &>.form-wrapper,
+        &>.field--type-string-long {
+          &::after {
+            @include content-container-width-correction-whole;
+          }
+        }
+      }
+    }
+
+    .contactpage__content {
+      padding-top: 0;
+    }
+  }
+}
+
+// Mobile down
+@media screen and (max-width: $breakpoint-s-width) {
+  .layout--contactpage {
+    .contactpage__form {
+      .contactpage__dsgvo-submit-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        border-bottom: 1px solid black;
+        .form-type-boolean .form-item__description,
+        .form-type-boolean a {
+          @include text-regular;
+          margin: 0;
+        }
+      }
+
+      .form-actions {
+        justify-self: start;
+        @include content-container-width-correction-whole;
+        @include content-container-position-correction-left;
+        .button {
+          width: 100%;
+          display: block;
+          position: relative;
+          border-top: 1px solid black;
+        }
       }
     }
   }

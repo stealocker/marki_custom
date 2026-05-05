@@ -1,6 +1,9 @@
 html {
     font-size: calc(#{6px} + #{strip-unit(4px)} * ((100vw - #{$breakpoint-s-width}) / #{strip-unit($breakpoints-max-diff)}));
-    line-height: 1.3;
+    line-height: 1.2;
+    @media screen and (max-width: $breakpoint-s-width) {
+font-size: 6px;
+    }
 }
 
 div,
@@ -14,11 +17,13 @@ address,
 a {
     @include font-text-regular;
     @include text-regular;
+    line-height: 1.2;
 }
 
 p {
     margin: $spacing-mobile 0;
     max-width: $content-text-max-width;
+    line-height: 1.2;
 }
 
 strong,

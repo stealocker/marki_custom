@@ -47,17 +47,75 @@
       &>.field__items {
         @include grid;
         row-gap: 4rem;
+
         &>.field__item {
           grid-column-end: span 3;
         }
       }
+    }
 
-      .teammember {
-        grid-template-columns: span 3;
+    .aboutus__persons_gone {
+      margin-bottom: 20rem;
+    }
+  }
+}
+
+// Tablet down
+@media screen and (max-width: $breakpoint-l-width) {
+  .layout--aboutus {
+    .aboutus__wrapper {
+
+      p.h6 {
+        margin-bottom: 4rem;
+      }
+
+      .aboutus__persons,
+      .aboutus__persons_gone {
+
+        &>.field__items {
+          &>.field__item {
+            grid-column-end: span 4;
+          }
+        }
       }
     }
-     .aboutus__persons_gone {
-      margin-bottom: 20rem;
-     }
+  }
+}
+
+// Mobile down
+@media screen and (max-width: $breakpoint-m-width) {
+  .layout--aboutus {
+    .aboutus__intro-wrapper {
+      grid-template-areas: "img img img img img img img img img img img img" "txt txt txt txt txt txt txt txt txt txt txt txt";
+      margin-top: 0;
+      h1{
+        margin-top: 4rem;
+      }
+    }
+    .aboutus__wrapper {
+      .aboutus__persons,
+      .aboutus__persons_gone {
+        &>.field__items {
+          &>.field__item {
+            grid-column-end: span 6;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-s-width) {
+  .layout--aboutus {
+    .aboutus__wrapper {
+      .aboutus__persons,
+      .aboutus__persons_gone {
+        &>.field__items {
+          &>.field__item {
+            grid-column-end: span 12;
+          }
+        }
+      }
+    }
   }
 }

@@ -48,3 +48,33 @@
         }
     }
 }
+
+// Mobile down
+
+@media screen and (max-width: $breakpoint-m-width) {
+    .searchbar {
+            &__wrapper {
+                height: auto;
+        grid-template-areas: "input input input input input input input input input input input input" "divider divider divider divider divider divider divider divider divider divider divider divider" "search search search search search search search search search camera camera camera";
+                    &::after{
+                content: "";
+                background-color: black;
+                height: 1px;
+                width: 100vw;
+                left: calc(50% - 50vw);
+                position: absolute;
+                grid-area: divider;
+                top: 8rem;
+            }
+        input{
+            position: relative;
+            height: 8rem;
+        }
+         .button--search, .button--camera {
+            justify-self: stretch;
+            height: 8rem;
+            display: block;
+        }
+            }
+    }
+}
