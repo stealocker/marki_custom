@@ -335,9 +335,9 @@ html {
   font-size: calc(6px + 4 * (100vw - 375px) / 1545);
   line-height: 1.2;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 576px) {
   html {
-    font-size: 6px;
+    font-size: 6.5px;
   }
 }
 
@@ -1401,8 +1401,21 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
 }
 .layout--basicblock .img-size--full {
   max-width: unset;
+  margin-top: -4rem;
+  aspect-ratio: 20/4;
+  object-fit: cover;
 }
 
+@media screen and (max-width: 576px) {
+  .layout--basicblock .img-size--full {
+    aspect-ratio: 16/5;
+  }
+}
+@media screen and (max-width: 375px) {
+  .layout--basicblock .img-size--full {
+    aspect-ratio: 12/5;
+  }
+}
 .layout--introtext {
   grid-template-areas: "headline headline headline headline headline headline space content content content content content";
   margin-top: 14rem;
@@ -2599,9 +2612,7 @@ h1.contactpage__title {
   font-size: 1.8rem;
   margin-top: 1em;
   margin-bottom: 1em;
-  display: flex;
-  align-content: baseline;
-  gap: 0.3em;
+  display: inline;
 }
 .header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__form .marki-search-form__form-actions .js-form-type-checkbox label a {
   display: inline;
@@ -2609,6 +2620,7 @@ h1.contactpage__title {
   font-family: "Corporate S", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
+  line-height: inherit;
 }
 .header-wrapper--search #block-marki-custom-markisearchform .block__content .marki-search-form-wrapper__form #edit-query-image--description {
   transform: translateY(-4rem);

@@ -268,14 +268,12 @@
                             label {
                                 @include font-text-bold;
                                 @include text-regular;
-                                display: flex;
-                                align-content: baseline;
-                                gap: 0.3em;
-
+                                display: inline;
                                 a {
                                     display: inline;
                                     margin: 0;
                                     @include font-text-bold;
+                                    line-height: inherit;
                                 }
                             }
                         }

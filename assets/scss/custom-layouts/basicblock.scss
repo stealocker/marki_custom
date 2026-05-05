@@ -1,10 +1,35 @@
 .layout--basicblock {
     position: relative;
-.img-size{
-    &--full{
-       @include content-container-width-correction-whole;
-       @include content-container-position-correction-left;
-       max-width: unset;
+
+    .img-size {
+        &--full {
+            @include content-container-width-correction-whole;
+            @include content-container-position-correction-left;
+            max-width: unset;
+            margin-top: -4rem;
+            aspect-ratio: 20 / 4;
+            object-fit: cover;
+        }
     }
 }
+
+// Mobile down
+@media screen and (max-width: $breakpoint-sm-width) {
+    .layout--basicblock {
+        .img-size {
+            &--full {
+                aspect-ratio: 16 / 5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-s-width) {
+    .layout--basicblock {
+        .img-size {
+            &--full {
+                aspect-ratio: 12 / 5;
+            }
+        }
+    }
 }
