@@ -1,4 +1,7 @@
 <div class="layout--teammember team-member">
   <div class="team-member__image">{{ content.img }}</div>
   <div class="team-member__name">{{ content.name }}</div>
+  {% if content.position %}
+  <div class="team-member__position">{{ content.position }}</div>
+  {% endif %}
 </div>

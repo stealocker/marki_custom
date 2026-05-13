@@ -114,6 +114,8 @@ content_teammember:
       label: Bild
     name:
       label: Name
+    position:
+      label: Position
 content_object-preview:
   label: MarKI Objektvorschau
   category: MarKI Custom Blocks
