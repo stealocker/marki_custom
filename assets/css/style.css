@@ -1075,6 +1075,13 @@ footer .footer__container .footer__container__inner--logo-marki {
   position: relative;
   padding: 0 4rem;
 }
+footer .footer__container .footer__container__inner--logo-marki svg {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  position: relative;
+  display: block;
+}
 footer .footer__container .footer__container__inner--logo-marki::after {
   content: "";
   display: block;
@@ -1115,6 +1122,13 @@ footer .footer__container .footer__container__inner--logo-gnm::before {
   position: absolute;
   left: 0;
   top: -6rem;
+}
+footer .footer__container .footer__container__inner--logo-gnm svg {
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  position: relative;
+  display: block;
 }
 footer .footer__container .footer__container__inner--logo-gnm::after {
   content: "";
@@ -1246,7 +1260,7 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
   footer .footer__container .footer__container__inner--logo-funding, footer .footer__container .footer__container__inner--logo-gnm {
     grid-template-areas: "content content space";
   }
-  footer .footer__container .footer__container__inner--logo-funding img, footer .footer__container .footer__container__inner--logo-gnm img {
+  footer .footer__container .footer__container__inner--logo-funding img, footer .footer__container .footer__container__inner--logo-funding svg, footer .footer__container .footer__container__inner--logo-gnm img, footer .footer__container .footer__container__inner--logo-gnm svg {
     max-width: 160px;
   }
 }
@@ -1272,7 +1286,7 @@ footer .footer__container .footer__container__inner--txt::after, footer .footer_
     width: 100vw;
     left: calc(50% - 50vw);
   }
-  footer .footer__container .footer__container__inner--logo-marki img {
+  footer .footer__container .footer__container__inner--logo-marki svg {
     max-width: 160px;
     margin: 0 auto;
   }
@@ -2374,6 +2388,10 @@ h1.contactpage__title {
 .view-search .views-view-grid__item .views-field-rendered-item-card {
   position: relative;
   height: 100%;
+}
+
+#block-marki-custom-linkvonsuchezuhowtomarki {
+  position: relative;
 }
 
 .search__help {
